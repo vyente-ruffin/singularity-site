@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singularity AI | Turning AI Into Business Advantage</title>
+
+    <!-- Open Graph / Social Media Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://singularity.tech/">
+    <meta property="og:title" content="Singularity AI | Turning AI Into Business Advantage">
+    <meta property="og:description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions. Operational AI. Real Results.">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Singularity AI | Turning AI Into Business Advantage">
+    <meta name="twitter:description" content="We help companies integrate AI directly into their business workflows. Practical AI that delivers measurable results.">
+
+    <!-- General Meta -->
+    <meta name="description" content="Singularity AI helps companies move beyond AI hype and into real-world impact. From strategy to integration to results. Operational AI. Real Results.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mono': ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+                    },
+                    colors: {
+                        'terminal': {
+                            'bg': '#0d1117',
+                            'surface': '#161b22',
+                            'border': '#30363d',
+                            'green': '#3fb950',
+                            'cyan': '#58a6ff',
+                            'purple': '#a371f7',
+                            'orange': '#d29922',
+                            'red': '#f85149',
+                            'pink': '#db61a2',
+                            'text': '#c9d1d9',
+                            'muted': '#8b949e',
+                            'highlight': '#1f6feb',
+                        }
+                    },
+                    animation: {
+                        'blink': 'blink 1s step-end infinite',
+                        'typewriter': 'typewriter 2s steps(40) forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'scan': 'scan 2s linear infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        },
+                        typewriter: {
+                            '0%': { width: '0' },
+                            '100%': { width: '100%' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px rgba(63, 185, 80, 0.5), 0 0 10px rgba(63, 185, 80, 0.3)' },
+                            '100%': { boxShadow: '0 0 10px rgba(63, 185, 80, 0.8), 0 0 20px rgba(63, 185, 80, 0.5)' },
+                        },
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #161b22;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3fb950;
+        }
+
+        /* Terminal Window */
+        .terminal-window {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .terminal-header {
+            background: #21262d;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid #30363d;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot.red { background: #f85149; }
+        .terminal-dot.yellow { background: #d29922; }
+        .terminal-dot.green { background: #3fb950; }
+
+        /* Code Block Styling */
+        .code-block {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: #21262d;
+            padding: 8px 16px;
+            border-bottom: 1px solid #30363d;
+            font-size: 12px;
+            color: #8b949e;
+        }
+
+        /* Syntax Highlighting */
+        .syntax-keyword { color: #ff7b72; }
+        .syntax-function { color: #d2a8ff; }
+        .syntax-string { color: #a5d6ff; }
+        .syntax-comment { color: #8b949e; }
+        .syntax-variable { color: #ffa657; }
+        .syntax-number { color: #79c0ff; }
+        .syntax-operator { color: #ff7b72; }
+
+        /* Blinking Cursor */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background: #3fb950;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        /* Terminal Prompt */
+        .prompt::before {
+            content: '$ ';
+            color: #3fb950;
+        }
+
+        .prompt-arrow::before {
+            content: '> ';
+            color: #58a6ff;
+        }
+
+        /* ASCII Art Box */
+        .ascii-box {
+            border: 1px solid #30363d;
+            position: relative;
+        }
+
+        .ascii-box::before {
+            content: '+';
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            color: #3fb950;
+        }
+
+        .ascii-box::after {
+            content: '+';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            color: #3fb950;
+        }
+
+        /* Grid Pattern Background */
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(48, 54, 61, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(48, 54, 61, 0.3) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Scanline Effect */
+        .scanline::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                transparent 50%,
+                rgba(0, 0, 0, 0.05) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        /* Glow Text */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(63, 185, 80, 0.5), 0 0 20px rgba(63, 185, 80, 0.3);
+        }
+
+        /* Process Flow Arrow */
+        .flow-arrow {
+            position: relative;
+        }
+
+        .flow-arrow::after {
+            content: '>';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #3fb950;
+            font-size: 24px;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* Gradient Border */
+        .gradient-border {
+            position: relative;
+            background: #161b22;
+            border-radius: 8px;
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(135deg, #3fb950, #58a6ff, #a371f7);
+            border-radius: 9px;
+            z-index: -1;
+        }
+
+        /* Typing Animation Container */
+        .typing-container {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="font-mono overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-terminal-bg/90 backdrop-blur-md border-b border-terminal-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 text-terminal-green">
+                    <span class="text-xl">[</span>
+                    <span class="font-bold">singularity</span>
+                    <span class="text-xl">]</span>
+                    <span class="cursor"></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#what-we-do" class="text-terminal-muted hover:text-terminal-green transition-colors text-sm">what_we_do</a>
+                    <a href="#who-its-for" class="text-terminal-muted hover:text-terminal-green transition-colors text-sm">who_its_for</a>
+                    <a href="#how-it-works" class="text-terminal-muted hover:text-terminal-green transition-colors text-sm">how_it_works</a>
+                    <a href="#contact" class="bg-terminal-green text-terminal-bg px-4 py-2 rounded hover:bg-terminal-green/80 transition-colors text-sm font-medium">
+                        ./book_demo
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden text-terminal-muted hover:text-terminal-green p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-16 right-0 bottom-0 w-64 bg-terminal-surface border-l border-terminal-border md:hidden">
+            <div class="flex flex-col p-4 gap-4">
+                <a href="#what-we-do" class="text-terminal-muted hover:text-terminal-green transition-colors py-2">$ what_we_do</a>
+                <a href="#who-its-for" class="text-terminal-muted hover:text-terminal-green transition-colors py-2">$ who_its_for</a>
+                <a href="#how-it-works" class="text-terminal-muted hover:text-terminal-green transition-colors py-2">$ how_it_works</a>
+                <a href="#contact" class="bg-terminal-green text-terminal-bg px-4 py-3 rounded text-center font-medium mt-4">
+                    ./book_demo
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-24 pb-16 px-4 relative overflow-hidden grid-bg">
+        <!-- Gradient Orbs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-terminal-green/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-terminal-purple/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-[80vh]">
+                <!-- Left Content -->
+                <div class="reveal">
+                    <div class="mb-6">
+                        <span class="text-terminal-muted text-sm">// operational_ai_solutions</span>
+                    </div>
+
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                        <span class="text-terminal-text">Turning </span>
+                        <span class="text-terminal-green glow-text">AI</span>
+                        <span class="text-terminal-text"> Into</span>
+                        <br>
+                        <span class="text-terminal-cyan">Business</span>
+                        <span class="text-terminal-text"> Advantage</span>
+                    </h1>
+
+                    <p class="text-lg text-terminal-muted mb-8 max-w-xl leading-relaxed">
+                        We help companies integrate AI directly into their business workflows--not as experiments, but as
+                        <span class="text-terminal-green">production-ready solutions</span>.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="bg-terminal-green text-terminal-bg px-8 py-4 rounded font-medium hover:bg-terminal-green/80 transition-all hover:shadow-lg hover:shadow-terminal-green/20 text-center">
+                            ./book_demo
+                        </a>
+                        <a href="#how-it-works" class="border border-terminal-border px-8 py-4 rounded text-terminal-text hover:border-terminal-green hover:text-terminal-green transition-colors text-center">
+                            learn_more --verbose
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Content - Terminal -->
+                <div class="reveal stagger-1">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-dot red"></div>
+                            <div class="terminal-dot yellow"></div>
+                            <div class="terminal-dot green"></div>
+                            <span class="ml-4 text-terminal-muted text-sm">singularity.sh</span>
+                        </div>
+                        <div class="p-6 text-sm">
+                            <div class="mb-4">
+                                <span class="text-terminal-green">$</span>
+                                <span class="text-terminal-text ml-2">singularity init --business</span>
+                            </div>
+                            <div class="mb-4 text-terminal-muted">
+                                <span class="syntax-comment"># Analyzing your operations...</span>
+                            </div>
+                            <div class="mb-4">
+                                <span class="text-terminal-cyan">[INFO]</span>
+                                <span class="text-terminal-text ml-2">Identifying high-ROI opportunities</span>
+                            </div>
+                            <div class="mb-4">
+                                <span class="text-terminal-cyan">[INFO]</span>
+                                <span class="text-terminal-text ml-2">Mapping existing workflows</span>
+                            </div>
+                            <div class="mb-4">
+                                <span class="text-terminal-green">[SUCCESS]</span>
+                                <span class="text-terminal-text ml-2">AI integration ready</span>
+                            </div>
+                            <div class="mb-4">
+                                <span class="syntax-comment"># Results:</span>
+                            </div>
+                            <div class="bg-terminal-bg p-4 rounded border border-terminal-border">
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-terminal-muted">status:</span>
+                                    <span class="text-terminal-green">production_ready</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-terminal-muted">integration:</span>
+                                    <span class="text-terminal-cyan">seamless</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-terminal-muted">roi:</span>
+                                    <span class="text-terminal-orange">measurable</span>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <span class="text-terminal-green">$</span>
+                                <span class="cursor ml-2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section id="what-we-do" class="py-24 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-terminal-muted text-sm block mb-4">// services</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-terminal-cyan">what</span>
+                    <span class="text-terminal-text">_we_</span>
+                    <span class="text-terminal-green">do</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Card 1 -->
+                <div class="reveal stagger-1">
+                    <div class="code-block h-full">
+                        <div class="code-header flex items-center gap-2">
+                            <span class="text-terminal-green">01</span>
+                            <span>workflow_integration.ts</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <span class="syntax-keyword">export</span>
+                                <span class="syntax-keyword"> function</span>
+                                <span class="syntax-function"> integrate</span>
+                                <span class="text-terminal-text">(</span>
+                                <span class="syntax-variable">tools</span>
+                                <span class="text-terminal-text">: </span>
+                                <span class="syntax-keyword">ExistingTools</span>
+                                <span class="text-terminal-text">) {</span>
+                            </div>
+                            <div class="pl-4 mb-4">
+                                <span class="syntax-comment">// Integrate AI into existing tools</span>
+                                <br>
+                                <span class="syntax-comment">// and workflows</span>
+                            </div>
+                            <div class="text-terminal-text">}</div>
+                            <p class="mt-6 text-terminal-muted leading-relaxed">
+                                We integrate AI directly into your existing tools and processes. No rip-and-replace. No new platforms to learn.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal stagger-2">
+                    <div class="code-block h-full">
+                        <div class="code-header flex items-center gap-2">
+                            <span class="text-terminal-cyan">02</span>
+                            <span>use_case_discovery.ts</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <span class="syntax-keyword">export</span>
+                                <span class="syntax-keyword"> function</span>
+                                <span class="syntax-function"> discover</span>
+                                <span class="text-terminal-text">(</span>
+                                <span class="syntax-variable">ops</span>
+                                <span class="text-terminal-text">: </span>
+                                <span class="syntax-keyword">Operations</span>
+                                <span class="text-terminal-text">) {</span>
+                            </div>
+                            <div class="pl-4 mb-4">
+                                <span class="syntax-comment">// Identify high-ROI AI use cases</span>
+                                <br>
+                                <span class="syntax-comment">// across operations</span>
+                            </div>
+                            <div class="text-terminal-text">}</div>
+                            <p class="mt-6 text-terminal-muted leading-relaxed">
+                                We audit your operations to find where AI creates the most value--not just what's trendy, but what drives results.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal stagger-3">
+                    <div class="code-block h-full">
+                        <div class="code-header flex items-center gap-2">
+                            <span class="text-terminal-purple">03</span>
+                            <span>responsible_deploy.ts</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <span class="syntax-keyword">export</span>
+                                <span class="syntax-keyword"> function</span>
+                                <span class="syntax-function"> deploy</span>
+                                <span class="text-terminal-text">(</span>
+                                <span class="syntax-variable">config</span>
+                                <span class="text-terminal-text">: </span>
+                                <span class="syntax-keyword">SecureConfig</span>
+                                <span class="text-terminal-text">) {</span>
+                            </div>
+                            <div class="pl-4 mb-4">
+                                <span class="syntax-comment">// Deploy with security and</span>
+                                <br>
+                                <span class="syntax-comment">// governance guardrails</span>
+                            </div>
+                            <div class="text-terminal-text">}</div>
+                            <p class="mt-6 text-terminal-muted leading-relaxed">
+                                Deploy AI responsibly with security and governance. Built for scale with proper guardrails from day one.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="reveal stagger-4">
+                    <div class="code-block h-full">
+                        <div class="code-header flex items-center gap-2">
+                            <span class="text-terminal-orange">04</span>
+                            <span>production_ready.ts</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4">
+                                <span class="syntax-keyword">export</span>
+                                <span class="syntax-keyword"> function</span>
+                                <span class="syntax-function"> ship</span>
+                                <span class="text-terminal-text">(</span>
+                                <span class="syntax-variable">solution</span>
+                                <span class="text-terminal-text">: </span>
+                                <span class="syntax-keyword">AISolution</span>
+                                <span class="text-terminal-text">) {</span>
+                            </div>
+                            <div class="pl-4 mb-4">
+                                <span class="syntax-comment">// Move from experimentation to</span>
+                                <br>
+                                <span class="syntax-comment">// production-ready solutions</span>
+                            </div>
+                            <div class="text-terminal-text">}</div>
+                            <p class="mt-6 text-terminal-muted leading-relaxed">
+                                Move from experimentation to production-ready solutions. No POCs that gather dust--real deployments that scale.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section id="who-its-for" class="py-24 px-4 bg-terminal-surface/50 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-terminal-muted text-sm block mb-4">// target_audience</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-terminal-purple">who</span>
+                    <span class="text-terminal-text">_its_</span>
+                    <span class="text-terminal-green">for</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Audience 1 -->
+                <div class="reveal stagger-1">
+                    <div class="terminal-window h-full">
+                        <div class="terminal-header">
+                            <div class="terminal-dot green"></div>
+                            <span class="ml-4 text-terminal-muted text-xs">beginners.sh</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-terminal-green text-2xl mb-4">&gt;_</div>
+                            <h3 class="text-xl font-bold text-terminal-green mb-4">Beginning Your AI Journey</h3>
+                            <p class="text-terminal-muted leading-relaxed mb-6">
+                                You know AI matters but don't know where to start. We show you the highest-impact opportunities.
+                            </p>
+                            <div class="text-sm text-terminal-muted border-t border-terminal-border pt-4">
+                                <span class="text-terminal-cyan">$</span> ./find_opportunities
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audience 2 -->
+                <div class="reveal stagger-2">
+                    <div class="terminal-window h-full">
+                        <div class="terminal-header">
+                            <div class="terminal-dot cyan" style="background: #58a6ff;"></div>
+                            <span class="ml-4 text-terminal-muted text-xs">scaling.sh</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-terminal-cyan text-2xl mb-4">&gt;_</div>
+                            <h3 class="text-xl font-bold text-terminal-cyan mb-4">Scaling AI Initiatives</h3>
+                            <p class="text-terminal-muted leading-relaxed mb-6">
+                                You've experimented with AI but can't move from pilot to production. We bridge that gap.
+                            </p>
+                            <div class="text-sm text-terminal-muted border-t border-terminal-border pt-4">
+                                <span class="text-terminal-cyan">$</span> ./scale_to_production
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audience 3 -->
+                <div class="reveal stagger-3">
+                    <div class="terminal-window h-full">
+                        <div class="terminal-header">
+                            <div class="terminal-dot purple" style="background: #a371f7;"></div>
+                            <span class="ml-4 text-terminal-muted text-xs">results.sh</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="text-terminal-purple text-2xl mb-4">&gt;_</div>
+                            <h3 class="text-xl font-bold text-terminal-purple mb-4">Results-Focused Leaders</h3>
+                            <p class="text-terminal-muted leading-relaxed mb-6">
+                                You want practical, measurable AI results--not hype, not experiments, not slides.
+                            </p>
+                            <div class="text-sm text-terminal-muted border-t border-terminal-border pt-4">
+                                <span class="text-terminal-cyan">$</span> ./show_me_the_roi
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 px-4 relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 grid-bg opacity-50"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="text-terminal-muted text-sm block mb-4">// process</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-terminal-orange">how</span>
+                    <span class="text-terminal-text">_it_</span>
+                    <span class="text-terminal-green">works</span>
+                </h2>
+            </div>
+
+            <!-- Process Steps -->
+            <div class="relative">
+                <!-- Connection Line (Desktop) -->
+                <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-terminal-border -translate-y-1/2 z-0"></div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                    <!-- Step 1: DISCOVER -->
+                    <div class="reveal stagger-1">
+                        <div class="gradient-border p-6 h-full">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-4xl font-bold text-terminal-green">01</span>
+                                <div class="h-px flex-1 bg-terminal-border"></div>
+                            </div>
+                            <h3 class="text-xl font-bold text-terminal-green mb-3">DISCOVER</h3>
+                            <p class="text-terminal-muted text-sm leading-relaxed">
+                                We audit your operations to find the highest-impact AI opportunities.
+                            </p>
+                            <div class="mt-4 text-xs text-terminal-muted">
+                                <span class="syntax-comment"># Find where AI creates value</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: DESIGN -->
+                    <div class="reveal stagger-2">
+                        <div class="gradient-border p-6 h-full">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-4xl font-bold text-terminal-cyan">02</span>
+                                <div class="h-px flex-1 bg-terminal-border"></div>
+                            </div>
+                            <h3 class="text-xl font-bold text-terminal-cyan mb-3">DESIGN</h3>
+                            <p class="text-terminal-muted text-sm leading-relaxed">
+                                We architect solutions that fit your existing systems and workflows.
+                            </p>
+                            <div class="mt-4 text-xs text-terminal-muted">
+                                <span class="syntax-comment"># No rip-and-replace</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: DEPLOY -->
+                    <div class="reveal stagger-3">
+                        <div class="gradient-border p-6 h-full">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-4xl font-bold text-terminal-purple">03</span>
+                                <div class="h-px flex-1 bg-terminal-border"></div>
+                            </div>
+                            <h3 class="text-xl font-bold text-terminal-purple mb-3">DEPLOY</h3>
+                            <p class="text-terminal-muted text-sm leading-relaxed">
+                                We implement AI that your team can actually use--with proper guardrails.
+                            </p>
+                            <div class="mt-4 text-xs text-terminal-muted">
+                                <span class="syntax-comment"># Security & governance built-in</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: DELIVER -->
+                    <div class="reveal stagger-4">
+                        <div class="gradient-border p-6 h-full">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="text-4xl font-bold text-terminal-orange">04</span>
+                                <div class="h-px flex-1 bg-terminal-border"></div>
+                            </div>
+                            <h3 class="text-xl font-bold text-terminal-orange mb-3">DELIVER</h3>
+                            <p class="text-terminal-muted text-sm leading-relaxed">
+                                We measure, optimize, and prove the value in real business terms.
+                            </p>
+                            <div class="mt-4 text-xs text-terminal-muted">
+                                <span class="syntax-comment"># Show me the ROI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Code Block -->
+            <div class="mt-16 max-w-3xl mx-auto reveal">
+                <div class="code-block">
+                    <div class="code-header">
+                        <span>process.ts</span>
+                    </div>
+                    <div class="p-6 text-sm overflow-x-auto">
+                        <pre class="text-terminal-text"><span class="syntax-keyword">const</span> <span class="syntax-variable">singularity</span> = <span class="syntax-keyword">await</span> <span class="syntax-function">pipeline</span>({
+  <span class="syntax-string">discover</span>: <span class="syntax-function">auditOperations</span>(<span class="syntax-variable">yourBusiness</span>),
+  <span class="syntax-string">design</span>:   <span class="syntax-function">architectSolutions</span>(<span class="syntax-variable">existingStack</span>),
+  <span class="syntax-string">deploy</span>:   <span class="syntax-function">implementWithGuardrails</span>(<span class="syntax-variable">securityFirst</span>),
+  <span class="syntax-string">deliver</span>:  <span class="syntax-function">measureAndOptimize</span>(<span class="syntax-variable">realKPIs</span>)
+});
+
+<span class="syntax-comment">// Result: Operational AI. Real Results.</span>
+<span class="syntax-keyword">return</span> <span class="syntax-variable">singularity</span>.<span class="syntax-function">businessAdvantage</span>();</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props Section -->
+    <section class="py-24 px-4 bg-terminal-surface/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-terminal-muted text-sm block mb-4">// value_proposition</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    <span class="text-terminal-green">why</span>
+                    <span class="text-terminal-text">_choose_</span>
+                    <span class="text-terminal-cyan">us</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Value 1 -->
+                <div class="reveal stagger-1">
+                    <div class="p-6 border border-terminal-border rounded-lg hover:border-terminal-green transition-colors h-full">
+                        <div class="w-12 h-12 rounded bg-terminal-green/10 flex items-center justify-center mb-4">
+                            <span class="text-terminal-green text-2xl">&lt;/&gt;</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-terminal-green mb-2">Measurable Results</h3>
+                        <p class="text-terminal-muted text-sm leading-relaxed">
+                            Practical AI that delivers measurable results, not experiments that go nowhere.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 2 -->
+                <div class="reveal stagger-2">
+                    <div class="p-6 border border-terminal-border rounded-lg hover:border-terminal-cyan transition-colors h-full">
+                        <div class="w-12 h-12 rounded bg-terminal-cyan/10 flex items-center justify-center mb-4">
+                            <span class="text-terminal-cyan text-2xl">{_}</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-terminal-cyan mb-2">Strategic Partnership</h3>
+                        <p class="text-terminal-muted text-sm leading-relaxed">
+                            Both strategic and technical partnership--from vision to implementation.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 3 -->
+                <div class="reveal stagger-3">
+                    <div class="p-6 border border-terminal-border rounded-lg hover:border-terminal-purple transition-colors h-full">
+                        <div class="w-12 h-12 rounded bg-terminal-purple/10 flex items-center justify-center mb-4">
+                            <span class="text-terminal-purple text-2xl">[=]</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-terminal-purple mb-2">End-to-End Delivery</h3>
+                        <p class="text-terminal-muted text-sm leading-relaxed">
+                            From strategy through integration to measurable results.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Value 4 -->
+                <div class="reveal stagger-4">
+                    <div class="p-6 border border-terminal-border rounded-lg hover:border-terminal-orange transition-colors h-full">
+                        <div class="w-12 h-12 rounded bg-terminal-orange/10 flex items-center justify-center mb-4">
+                            <span class="text-terminal-orange text-2xl">!!</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-terminal-orange mb-2">Built-in Governance</h3>
+                        <p class="text-terminal-muted text-sm leading-relaxed">
+                            Security, governance, and compliance in mind from day one.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tagline Banner -->
+    <section class="py-16 px-4 border-y border-terminal-border relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-terminal-green/5 via-terminal-cyan/5 to-terminal-purple/5"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10 reveal">
+            <div class="terminal-window inline-block">
+                <div class="terminal-header justify-center">
+                    <span class="text-terminal-muted text-sm">mission.txt</span>
+                </div>
+                <div class="p-8">
+                    <p class="text-2xl md:text-3xl font-bold">
+                        <span class="text-terminal-green">"</span>
+                        <span class="text-terminal-text">Operational AI. </span>
+                        <span class="text-terminal-cyan">Real Results.</span>
+                        <span class="text-terminal-green">"</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="py-24 px-4 relative overflow-hidden">
+        <!-- Background Effects -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-terminal-green/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-terminal-purple/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="reveal">
+                <span class="text-terminal-muted text-sm block mb-4">// get_started</span>
+
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                    <span class="text-terminal-text">Ready to turn </span>
+                    <span class="text-terminal-green">AI</span>
+                    <span class="text-terminal-text"> into</span>
+                    <br>
+                    <span class="text-terminal-cyan">business advantage</span>
+                    <span class="text-terminal-text">?</span>
+                </h2>
+
+                <p class="text-lg text-terminal-muted mb-8 max-w-2xl mx-auto">
+                    Book a 30-minute call. We'll show you where AI can create the most value in your business.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:hello@singularity.tech" class="bg-terminal-green text-terminal-bg px-8 py-4 rounded font-medium hover:bg-terminal-green/80 transition-all hover:shadow-lg hover:shadow-terminal-green/20 text-center animate-glow">
+                        ./book_demo
+                    </a>
+                    <a href="mailto:hello@singularity.tech" class="border border-terminal-border px-8 py-4 rounded text-terminal-text hover:border-terminal-cyan hover:text-terminal-cyan transition-colors text-center">
+                        contact --email
+                    </a>
+                </div>
+            </div>
+
+            <!-- Terminal CTA Block -->
+            <div class="mt-16 reveal">
+                <div class="terminal-window max-w-2xl mx-auto text-left">
+                    <div class="terminal-header">
+                        <div class="terminal-dot red"></div>
+                        <div class="terminal-dot yellow"></div>
+                        <div class="terminal-dot green"></div>
+                        <span class="ml-4 text-terminal-muted text-sm">start_your_journey.sh</span>
+                    </div>
+                    <div class="p-6 text-sm">
+                        <div class="mb-2">
+                            <span class="text-terminal-green">$</span>
+                            <span class="text-terminal-text ml-2">singularity --contact</span>
+                        </div>
+                        <div class="mb-2 text-terminal-muted">
+                            <span class="syntax-comment"># Opening communication channel...</span>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-terminal-cyan">[INFO]</span>
+                            <span class="text-terminal-text ml-2">Email: </span>
+                            <a href="mailto:hello@singularity.tech" class="text-terminal-green hover:underline">hello@singularity.tech</a>
+                        </div>
+                        <div class="mb-2">
+                            <span class="text-terminal-green">[READY]</span>
+                            <span class="text-terminal-text ml-2">Awaiting your input...</span>
+                        </div>
+                        <div class="mt-4">
+                            <span class="text-terminal-green">$</span>
+                            <span class="cursor ml-2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-4 border-t border-terminal-border bg-terminal-surface/30">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <!-- Brand -->
+                <div>
+                    <a href="#" class="flex items-center gap-2 text-terminal-green mb-4">
+                        <span class="text-xl">[</span>
+                        <span class="font-bold">singularity</span>
+                        <span class="text-xl">]</span>
+                    </a>
+                    <p class="text-terminal-muted text-sm mb-4">
+                        Operational AI. Real Results.
+                    </p>
+                    <a href="mailto:hello@singularity.tech" class="text-terminal-green hover:underline text-sm">
+                        hello@singularity.tech
+                    </a>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-terminal-text font-bold mb-4">// navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#what-we-do" class="text-terminal-muted hover:text-terminal-green transition-colors">what_we_do</a></li>
+                        <li><a href="#who-its-for" class="text-terminal-muted hover:text-terminal-green transition-colors">who_its_for</a></li>
+                        <li><a href="#how-it-works" class="text-terminal-muted hover:text-terminal-green transition-colors">how_it_works</a></li>
+                        <li><a href="#contact" class="text-terminal-muted hover:text-terminal-green transition-colors">contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-terminal-text font-bold mb-4">// legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-terminal-muted hover:text-terminal-green transition-colors">Privacy</a></li>
+                        <li><a href="#" class="text-terminal-muted hover:text-terminal-green transition-colors">Terms</a></li>
+                        <li><a href="#" class="text-terminal-muted hover:text-terminal-green transition-colors">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-terminal-border flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-terminal-muted text-xs">
+                    <span class="syntax-comment">// </span>
+                    2025 Singularity AI. All rights reserved.
+                </p>
+                <p class="text-terminal-muted text-xs">
+                    <span class="text-terminal-green">&gt;</span> AI isn't the future. It's the next competitive baseline.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+            });
+
+            // Close mobile menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                });
+            });
+
+            // Scroll reveal animation
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const revealPoint = 100;
+
+                    if (elementTop < windowHeight - revealPoint) {
+                        element.classList.add('active');
+                    }
+                });
+            };
+
+            // Initial check
+            setTimeout(revealOnScroll, 100);
+            window.addEventListener('load', revealOnScroll);
+
+            // Throttled scroll listener
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(() => {
+                        revealOnScroll();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Typing effect for hero (optional enhancement)
+            const heroTitle = document.querySelector('h1');
+            if (heroTitle) {
+                heroTitle.style.opacity = '1';
+            }
+
+            // Add scan line effect to terminal windows on hover
+            const terminalWindows = document.querySelectorAll('.terminal-window');
+            terminalWindows.forEach(terminal => {
+                terminal.addEventListener('mouseenter', () => {
+                    terminal.classList.add('scanline');
+                });
+                terminal.addEventListener('mouseleave', () => {
+                    terminal.classList.remove('scanline');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

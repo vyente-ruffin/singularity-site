@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singularity AI | Operational AI. Real Results.</title>
+    <meta name="description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Singularity AI | Turning AI Into Business Advantage">
+    <meta property="og:description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://singularity.tech">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        light: '#fafafa',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fafafa;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Smooth scrolling container */
+        .smooth-scroll {
+            overflow-y: auto;
+        }
+
+        /* Section styling */
+        .section {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-pinned {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Gradient backgrounds */
+        .gradient-hero {
+            background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.3), transparent),
+                        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(78, 81, 205, 0.2), transparent),
+                        #0a0a0a;
+        }
+
+        .gradient-dark {
+            background: radial-gradient(ellipse 100% 80% at 50% 100%, rgba(30, 30, 50, 0.5), transparent),
+                        #0a0a0a;
+        }
+
+        .gradient-accent {
+            background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(99, 102, 241, 0.15), transparent),
+                        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(168, 85, 247, 0.1), transparent),
+                        #0a0a0a;
+        }
+
+        /* Text gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 50%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #c084fc 0%, #818cf8 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Reveal animations */
+        .reveal-text {
+            clip-path: inset(0 100% 0 0);
+        }
+
+        .reveal-up {
+            transform: translateY(60px);
+            opacity: 0;
+        }
+
+        .reveal-fade {
+            opacity: 0;
+        }
+
+        .reveal-scale {
+            transform: scale(0.8);
+            opacity: 0;
+        }
+
+        /* Parallax layers */
+        .parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            will-change: transform;
+        }
+
+        /* Process step styling */
+        .process-step {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .process-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 0;
+            background: linear-gradient(to bottom, #6366f1, #a855f7);
+        }
+
+        /* Card styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+        }
+
+        /* Button styling */
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Process indicator */
+        .process-indicator {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Horizontal scroll container */
+        .horizontal-scroll {
+            display: flex;
+            width: fit-content;
+        }
+
+        .horizontal-panel {
+            width: 100vw;
+            height: 100vh;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 5%;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 16px 48px;
+        }
+
+        .nav-logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-cta {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-cta:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Typography scale */
+        .text-hero {
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+        }
+
+        .text-display {
+            font-size: clamp(36px, 6vw, 80px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .text-title {
+            font-size: clamp(28px, 4vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .text-subtitle {
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 400;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .text-body {
+            font-size: clamp(16px, 1.5vw, 20px);
+            font-weight: 400;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.6;
+        }
+
+        .scroll-indicator-line {
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, #fff, transparent);
+        }
+
+        /* Value prop grid */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                padding: 16px 24px;
+            }
+
+            .nav.scrolled {
+                padding: 12px 24px;
+            }
+
+            .horizontal-panel {
+                padding: 0 24px;
+            }
+        }
+
+        /* Pin spacer fix */
+        .pin-spacer {
+            width: 100% !important;
+        }
+
+        /* Process section specific */
+        .process-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .process-bg-text {
+            position: absolute;
+            font-size: clamp(100px, 20vw, 300px);
+            font-weight: 900;
+            opacity: 0.03;
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: #050505;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-logo">Singularity<span class="text-indigo-400">.</span></div>
+        <a href="#cta" class="nav-cta">Book a Demo</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="section gradient-hero" id="hero">
+        <div class="floating-element" style="width: 600px; height: 600px; background: #6366f1; top: -200px; right: -200px;"></div>
+        <div class="floating-element" style="width: 400px; height: 400px; background: #a855f7; bottom: -100px; left: -100px;"></div>
+
+        <div class="container mx-auto px-6 md:px-12 text-center relative z-10">
+            <h1 class="text-hero text-gradient mb-8 hero-headline">
+                Turning AI Into<br>Business Advantage
+            </h1>
+            <p class="text-subtitle max-w-3xl mx-auto mb-12 hero-subheadline">
+                We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center hero-ctas">
+                <a href="#cta" class="btn-primary">
+                    Book a Demo
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#what-we-do" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span class="text-xs uppercase tracking-widest">Scroll</span>
+            <div class="scroll-indicator-line"></div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="section-pinned gradient-dark" id="what-we-do">
+        <div class="container mx-auto px-6 md:px-12 py-32">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-20 text-center">
+                    <h2 class="text-display text-gradient-purple mb-6 what-title">What We Do</h2>
+                    <p class="text-subtitle max-w-2xl mx-auto what-subtitle">
+                        AI that works for your business, not the other way around.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass-card p-8 what-card">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Integrate AI Into Existing Workflows</h3>
+                        <p class="text-body">Connect AI capabilities to your current tools and processes without disrupting operations.</p>
+                    </div>
+
+                    <div class="glass-card p-8 what-card">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Identify High-ROI Use Cases</h3>
+                        <p class="text-body">Find the AI opportunities across your operations that will deliver the biggest business impact.</p>
+                    </div>
+
+                    <div class="glass-card p-8 what-card">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">Deploy with Security & Governance</h3>
+                        <p class="text-body">Responsible AI implementation with proper guardrails, compliance, and enterprise security.</p>
+                    </div>
+
+                    <div class="glass-card p-8 what-card">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center mb-6">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3">From Experiments to Production</h3>
+                        <p class="text-body">Move past AI pilots to scalable, production-ready solutions that drive real results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section class="section gradient-accent" id="who">
+        <div class="floating-element" style="width: 500px; height: 500px; background: #8b5cf6; top: 50%; left: -200px; transform: translateY(-50%);"></div>
+
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-display mb-16 who-title">
+                    Built for leaders who want<br>
+                    <span class="text-gradient">practical AI results</span>
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="who-card">
+                        <div class="glass-card p-8 h-full">
+                            <div class="text-5xl font-bold text-gradient-purple mb-4">01</div>
+                            <h3 class="text-xl font-semibold mb-3">Beginning Your AI Journey</h3>
+                            <p class="text-body">Companies ready to explore AI but unsure where to start or what's actually possible.</p>
+                        </div>
+                    </div>
+
+                    <div class="who-card">
+                        <div class="glass-card p-8 h-full">
+                            <div class="text-5xl font-bold text-gradient-purple mb-4">02</div>
+                            <h3 class="text-xl font-semibold mb-3">Scaling Existing Initiatives</h3>
+                            <p class="text-body">Organizations looking to move from AI pilots to enterprise-wide implementation.</p>
+                        </div>
+                    </div>
+
+                    <div class="who-card">
+                        <div class="glass-card p-8 h-full">
+                            <div class="text-5xl font-bold text-gradient-purple mb-4">03</div>
+                            <h3 class="text-xl font-semibold mb-3">Demanding Measurable Results</h3>
+                            <p class="text-body">Leaders who need practical ROI and business outcomes, not just technology demos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section - Horizontal Scroll -->
+    <section class="section-pinned" id="process-section">
+        <div id="process-container" style="overflow: hidden;">
+            <div class="horizontal-scroll" id="horizontal-scroll">
+                <!-- DISCOVER -->
+                <div class="horizontal-panel" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);">
+                    <div class="max-w-4xl text-center">
+                        <div class="process-indicator mx-auto mb-8">1</div>
+                        <h3 class="text-display text-gradient mb-6">DISCOVER</h3>
+                        <p class="text-title text-white/80 mb-4">We audit your operations</p>
+                        <p class="text-subtitle max-w-2xl mx-auto">
+                            We audit your operations to find the highest-impact AI opportunities that will deliver measurable business value.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DESIGN -->
+                <div class="horizontal-panel" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+                    <div class="max-w-4xl text-center">
+                        <div class="process-indicator mx-auto mb-8">2</div>
+                        <h3 class="text-display text-gradient mb-6">DESIGN</h3>
+                        <p class="text-title text-white/80 mb-4">We architect solutions</p>
+                        <p class="text-subtitle max-w-2xl mx-auto">
+                            We architect solutions that fit your existing systems and workflows—not the other way around.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DEPLOY -->
+                <div class="horizontal-panel" style="background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);">
+                    <div class="max-w-4xl text-center">
+                        <div class="process-indicator mx-auto mb-8">3</div>
+                        <h3 class="text-display text-gradient mb-6">DEPLOY</h3>
+                        <p class="text-title text-white/80 mb-4">We implement with guardrails</p>
+                        <p class="text-subtitle max-w-2xl mx-auto">
+                            We implement AI that your team can actually use—with proper security, governance, and training.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DELIVER -->
+                <div class="horizontal-panel" style="background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);">
+                    <div class="max-w-4xl text-center">
+                        <div class="process-indicator mx-auto mb-8">4</div>
+                        <h3 class="text-display text-gradient mb-6">DELIVER</h3>
+                        <p class="text-title text-white/80 mb-4">We prove the value</p>
+                        <p class="text-subtitle max-w-2xl mx-auto">
+                            We measure, optimize, and prove the value in real business terms—not vanity metrics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props Section -->
+    <section class="section gradient-dark" id="value">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-display mb-8 value-title">
+                            <span class="text-gradient">Operational AI.</span><br>
+                            Real Results.
+                        </h2>
+                        <p class="text-subtitle mb-12 value-subtitle">
+                            We're not here to sell you on AI's potential. We're here to make it work for your business.
+                        </p>
+                    </div>
+
+                    <div class="value-grid">
+                        <div class="glass-card p-6 value-card">
+                            <div class="text-indigo-400 mb-3">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">Measurable Results</h4>
+                            <p class="text-sm text-white/60">Practical AI that delivers ROI you can track and prove.</p>
+                        </div>
+
+                        <div class="glass-card p-6 value-card">
+                            <div class="text-purple-400 mb-3">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">Strategic Partnership</h4>
+                            <p class="text-sm text-white/60">Technical expertise combined with business strategy.</p>
+                        </div>
+
+                        <div class="glass-card p-6 value-card">
+                            <div class="text-indigo-400 mb-3">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">End-to-End Delivery</h4>
+                            <p class="text-sm text-white/60">From strategy to integration to measurable results.</p>
+                        </div>
+
+                        <div class="glass-card p-6 value-card">
+                            <div class="text-purple-400 mb-3">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h4 class="font-semibold mb-2">Enterprise Security</h4>
+                            <p class="text-sm text-white/60">Security, governance, and compliance built in from day one.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section gradient-accent" id="cta">
+        <div class="floating-element" style="width: 800px; height: 800px; background: linear-gradient(135deg, #6366f1, #a855f7); top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+
+        <div class="container mx-auto px-6 md:px-12 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-display mb-6 cta-title">
+                    Ready to turn AI into<br>
+                    <span class="text-gradient">competitive advantage?</span>
+                </h2>
+                <p class="text-subtitle mb-12 cta-subtitle max-w-2xl mx-auto">
+                    AI isn't the future. It's the next competitive baseline. Let's make sure you're not left behind.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center cta-buttons">
+                    <a href="mailto:hello@singularity.tech?subject=Demo Request" class="btn-primary">
+                        Book a Demo
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="mailto:hello@singularity.tech" class="btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16">
+        <div class="container mx-auto px-6 md:px-12">
+            <div class="max-w-6xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div>
+                        <div class="text-2xl font-bold mb-2">Singularity<span class="text-indigo-400">.</span></div>
+                        <p class="text-white/50 text-sm">Operational AI. Real Results.</p>
+                    </div>
+
+                    <div class="text-center md:text-right">
+                        <a href="mailto:hello@singularity.tech" class="text-white/70 hover:text-white transition-colors">
+                            hello@singularity.tech
+                        </a>
+                        <p class="text-white/30 text-sm mt-2">
+                            AI isn't the future. It's the next competitive baseline.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                    <p class="text-white/30 text-sm">
+                        &copy; 2025 Singularity AI. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        ScrollTrigger.create({
+            start: 'top -80',
+            end: 99999,
+            toggleClass: { className: 'scrolled', targets: nav }
+        });
+
+        // Hero animations
+        gsap.from('.hero-headline', {
+            y: 100,
+            opacity: 0,
+            duration: 1.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-subheadline', {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            delay: 0.3,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-ctas', {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.6,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.scroll-indicator', {
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            delay: 1.2,
+            ease: 'power2.out'
+        });
+
+        // Hero parallax on scroll
+        gsap.to('.hero-headline', {
+            y: -100,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1
+            }
+        });
+
+        gsap.to('.hero-subheadline', {
+            y: -60,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '#hero',
+                start: 'top top',
+                end: 'center top',
+                scrub: 1
+            }
+        });
+
+        // What We Do section animations
+        gsap.from('.what-title', {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '#what-we-do',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.what-subtitle', {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.2,
+            scrollTrigger: {
+                trigger: '#what-we-do',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.what-card', {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            scrollTrigger: {
+                trigger: '.what-card',
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Who section animations
+        gsap.from('.who-title', {
+            y: 80,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '#who',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.who-card', {
+            y: 80,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: '.who-card',
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Horizontal scroll for Process section
+        const horizontalScroll = document.getElementById('horizontal-scroll');
+        const panels = gsap.utils.toArray('.horizontal-panel');
+
+        gsap.to(horizontalScroll, {
+            x: () => -(horizontalScroll.scrollWidth - window.innerWidth),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#process-section',
+                pin: true,
+                scrub: 1,
+                end: () => '+=' + horizontalScroll.scrollWidth,
+                invalidateOnRefresh: true
+            }
+        });
+
+        // Animate each panel content as it comes into view
+        panels.forEach((panel, i) => {
+            const indicator = panel.querySelector('.process-indicator');
+            const title = panel.querySelector('.text-display');
+            const subtitle = panel.querySelector('.text-title');
+            const desc = panel.querySelector('.text-subtitle');
+
+            gsap.from([indicator, title, subtitle, desc], {
+                y: 60,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.1,
+                scrollTrigger: {
+                    trigger: panel,
+                    containerAnimation: gsap.getById ? undefined : undefined,
+                    start: 'left center',
+                    toggleActions: 'play none none reverse',
+                    horizontal: true
+                }
+            });
+        });
+
+        // Value section animations
+        gsap.from('.value-title', {
+            y: 60,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '#value',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.value-subtitle', {
+            y: 40,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.2,
+            scrollTrigger: {
+                trigger: '#value',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.value-card', {
+            y: 40,
+            opacity: 0,
+            scale: 0.95,
+            duration: 0.6,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '.value-grid',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // CTA section animations
+        gsap.from('.cta-title', {
+            y: 80,
+            opacity: 0,
+            duration: 1,
+            scrollTrigger: {
+                trigger: '#cta',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.cta-subtitle', {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.2,
+            scrollTrigger: {
+                trigger: '#cta',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        gsap.from('.cta-buttons', {
+            y: 40,
+            opacity: 0,
+            duration: 0.6,
+            delay: 0.4,
+            scrollTrigger: {
+                trigger: '#cta',
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+
+        // Floating elements parallax
+        gsap.utils.toArray('.floating-element').forEach((el, i) => {
+            gsap.to(el, {
+                y: (i % 2 === 0) ? -100 : 100,
+                scrollTrigger: {
+                    trigger: el.parentElement,
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: target,
+                        ease: 'power2.inOut'
+                    });
+                }
+            });
+        });
+
+        // Refresh ScrollTrigger on resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                ScrollTrigger.refresh();
+            }, 250);
+        });
+    </script>
+</body>
+</html>

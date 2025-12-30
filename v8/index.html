@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singularity AI - Turning AI Into Business Advantage</title>
+    <meta name="description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Singularity AI - Operational AI. Real Results.">
+    <meta property="og:description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://singularity.tech">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Libre Baskerville', 'Georgia', 'serif'],
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'editorial': {
+                            'ink': '#1a1a1a',
+                            'text': '#2d2d2d',
+                            'muted': '#6b6b6b',
+                            'rule': '#d4d4d4',
+                            'cream': '#faf9f7',
+                            'warm': '#f5f3ef',
+                        }
+                    },
+                    fontSize: {
+                        'display': ['4.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+                        'headline': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.01em' }],
+                        'subhead': ['1.5rem', { lineHeight: '1.4' }],
+                        'body': ['1.125rem', { lineHeight: '1.7' }],
+                        'caption': ['0.875rem', { lineHeight: '1.5' }],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Drop cap styling */
+        .drop-cap::first-letter {
+            float: left;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 4.5rem;
+            line-height: 0.8;
+            padding-right: 0.75rem;
+            padding-top: 0.25rem;
+            color: #1a1a1a;
+            font-weight: 400;
+        }
+
+        /* Pull quote styling */
+        .pull-quote {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .pull-quote::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #1a1a1a;
+        }
+
+        /* Editorial rule */
+        .editorial-rule {
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4d4d4, transparent);
+        }
+
+        .editorial-rule-solid {
+            border: none;
+            height: 1px;
+            background: #d4d4d4;
+        }
+
+        /* Flourish */
+        .flourish::after {
+            content: '§';
+            display: block;
+            text-align: center;
+            font-family: 'Libre Baskerville', Georgia, serif;
+            font-size: 1.5rem;
+            color: #6b6b6b;
+            margin-top: 2rem;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: #1a1a1a;
+            color: #faf9f7;
+        }
+
+        /* Transition for interactive elements */
+        .editorial-link {
+            position: relative;
+            text-decoration: none;
+        }
+
+        .editorial-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.3s ease;
+        }
+
+        .editorial-link:hover::after {
+            width: 100%;
+        }
+
+        /* Column break handling */
+        .avoid-break {
+            break-inside: avoid;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-delay-100 { animation-delay: 0.1s; opacity: 0; }
+        .animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+        .animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+        .animate-delay-400 { animation-delay: 0.4s; opacity: 0; }
+    </style>
+</head>
+<body class="bg-editorial-cream text-editorial-text font-serif antialiased">
+
+    <!-- Header -->
+    <header class="border-b border-editorial-rule">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="font-sans font-semibold text-editorial-ink tracking-wide text-sm uppercase">
+                Singularity AI
+            </div>
+            <nav class="hidden md:flex items-center gap-8 font-sans text-sm text-editorial-muted">
+                <a href="#services" class="editorial-link hover:text-editorial-ink transition-colors">Services</a>
+                <a href="#approach" class="editorial-link hover:text-editorial-ink transition-colors">Approach</a>
+                <a href="#contact" class="editorial-link hover:text-editorial-ink transition-colors">Contact</a>
+            </nav>
+            <a href="#contact" class="font-sans text-sm font-medium text-editorial-ink border border-editorial-ink px-4 py-2 hover:bg-editorial-ink hover:text-editorial-cream transition-colors">
+                Book a Demo
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-6 pt-16 pb-20 md:pt-24 md:pb-28">
+        <div class="max-w-4xl">
+            <p class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-6 animate-fade-in">
+                The Future of Enterprise
+            </p>
+            <h1 class="text-4xl md:text-display text-editorial-ink mb-8 animate-fade-in animate-delay-100">
+                Turning AI Into<br>Business Advantage
+            </h1>
+            <p class="text-subhead text-editorial-text max-w-2xl mb-10 animate-fade-in animate-delay-200" style="font-style: italic;">
+                We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.
+            </p>
+            <div class="flex flex-wrap gap-4 animate-fade-in animate-delay-300">
+                <a href="#contact" class="inline-block font-sans text-sm font-medium bg-editorial-ink text-editorial-cream px-6 py-3 hover:bg-editorial-text transition-colors">
+                    Book a Demo
+                </a>
+                <a href="#services" class="inline-block font-sans text-sm font-medium text-editorial-ink border border-editorial-ink px-6 py-3 hover:bg-editorial-ink hover:text-editorial-cream transition-colors">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="editorial-rule max-w-6xl mx-auto">
+
+    <!-- What We Do Section -->
+    <section id="services" class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div class="grid md:grid-cols-12 gap-12">
+            <div class="md:col-span-4">
+                <p class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-3">
+                    Our Services
+                </p>
+                <h2 class="text-headline text-editorial-ink">
+                    What We Do
+                </h2>
+            </div>
+            <div class="md:col-span-8">
+                <div class="columns-1 md:columns-2 gap-8 text-body text-editorial-text">
+                    <div class="avoid-break mb-8">
+                        <p class="drop-cap">
+                            Integrate AI into existing tools and workflows. We believe that the most powerful AI implementations are those that enhance what already works, rather than replacing entire systems.
+                        </p>
+                    </div>
+                    <div class="avoid-break mb-8">
+                        <p>
+                            <strong class="text-editorial-ink">Identify high-ROI AI use cases</strong> across operations. Through careful analysis, we pinpoint where artificial intelligence can deliver measurable impact—not theoretical possibilities.
+                        </p>
+                    </div>
+                    <div class="avoid-break mb-8">
+                        <p>
+                            <strong class="text-editorial-ink">Deploy AI responsibly</strong> with security and governance at the forefront. Every implementation includes proper guardrails, compliance considerations, and risk management.
+                        </p>
+                    </div>
+                    <div class="avoid-break">
+                        <p>
+                            <strong class="text-editorial-ink">Move from experimentation to production</strong>-ready solutions. We bridge the gap between proof-of-concept and enterprise-scale deployment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pull Quote -->
+    <section class="bg-editorial-warm">
+        <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+            <blockquote class="pull-quote max-w-3xl mx-auto">
+                <p class="text-2xl md:text-3xl text-editorial-ink italic leading-relaxed">
+                    "AI isn't the future. It's the next competitive baseline."
+                </p>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Who It's For -->
+    <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div class="text-center mb-16">
+            <p class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-3">
+                Our Clients
+            </p>
+            <h2 class="text-headline text-editorial-ink">
+                Who It's For
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+            <article class="text-center">
+                <div class="w-12 h-px bg-editorial-ink mx-auto mb-6"></div>
+                <h3 class="text-xl text-editorial-ink mb-4">The Beginners</h3>
+                <p class="text-body text-editorial-muted">
+                    Businesses beginning their AI journey, seeking a trusted partner to guide first steps with confidence.
+                </p>
+            </article>
+
+            <article class="text-center">
+                <div class="w-12 h-px bg-editorial-ink mx-auto mb-6"></div>
+                <h3 class="text-xl text-editorial-ink mb-4">The Scalers</h3>
+                <p class="text-body text-editorial-muted">
+                    Companies looking to scale existing AI initiatives from isolated pilots to organization-wide transformation.
+                </p>
+            </article>
+
+            <article class="text-center">
+                <div class="w-12 h-px bg-editorial-ink mx-auto mb-6"></div>
+                <h3 class="text-xl text-editorial-ink mb-4">The Pragmatists</h3>
+                <p class="text-body text-editorial-muted">
+                    Leaders who want practical, measurable AI results—not theoretical promises or endless experiments.
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <hr class="editorial-rule max-w-6xl mx-auto">
+
+    <!-- How It Works -->
+    <section id="approach" class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div class="text-center mb-16">
+            <p class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-3">
+                Our Method
+            </p>
+            <h2 class="text-headline text-editorial-ink">
+                How It Works
+            </h2>
+        </div>
+
+        <!-- Process Steps -->
+        <div class="grid md:grid-cols-4 gap-8 mb-16">
+            <div class="relative">
+                <div class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-4">01</div>
+                <h3 class="text-xl text-editorial-ink mb-3">Discover</h3>
+                <p class="text-body text-editorial-muted">
+                    We audit your operations to find the highest-impact AI opportunities hiding in plain sight.
+                </p>
+            </div>
+
+            <div class="relative">
+                <div class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-4">02</div>
+                <h3 class="text-xl text-editorial-ink mb-3">Design</h3>
+                <p class="text-body text-editorial-muted">
+                    We architect solutions that fit your existing systems and workflows—not the other way around.
+                </p>
+            </div>
+
+            <div class="relative">
+                <div class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-4">03</div>
+                <h3 class="text-xl text-editorial-ink mb-3">Deploy</h3>
+                <p class="text-body text-editorial-muted">
+                    We implement AI that your team can actually use—with proper guardrails and training.
+                </p>
+            </div>
+
+            <div class="relative">
+                <div class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-4">04</div>
+                <h3 class="text-xl text-editorial-ink mb-3">Deliver</h3>
+                <p class="text-body text-editorial-muted">
+                    We measure, optimize, and prove the value in real business terms you can present to the board.
+                </p>
+            </div>
+        </div>
+
+        <div class="flourish"></div>
+    </section>
+
+    <!-- Value Props -->
+    <section class="bg-editorial-ink text-editorial-cream">
+        <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+            <div class="grid md:grid-cols-12 gap-12">
+                <div class="md:col-span-5">
+                    <p class="font-sans text-caption uppercase tracking-widest text-editorial-cream/60 mb-3">
+                        Why Singularity
+                    </p>
+                    <h2 class="text-headline text-editorial-cream mb-6">
+                        The Singularity Difference
+                    </h2>
+                    <p class="text-body text-editorial-cream/80 italic">
+                        We're not here to sell you on AI's potential. We're here to realize it.
+                    </p>
+                </div>
+                <div class="md:col-span-7">
+                    <div class="space-y-8">
+                        <div class="border-l-2 border-editorial-cream/30 pl-6">
+                            <h3 class="text-xl text-editorial-cream mb-2">Practical AI</h3>
+                            <p class="text-body text-editorial-cream/70">
+                                Artificial intelligence that delivers measurable results, not slide decks full of possibilities.
+                            </p>
+                        </div>
+                        <div class="border-l-2 border-editorial-cream/30 pl-6">
+                            <h3 class="text-xl text-editorial-cream mb-2">True Partnership</h3>
+                            <p class="text-body text-editorial-cream/70">
+                                Strategic and technical expertise working alongside your team—from strategy through integration to results.
+                            </p>
+                        </div>
+                        <div class="border-l-2 border-editorial-cream/30 pl-6">
+                            <h3 class="text-xl text-editorial-cream mb-2">Built-In Governance</h3>
+                            <p class="text-body text-editorial-cream/70">
+                                Security, governance, and compliance considered from day one—not bolted on as an afterthought.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="font-sans text-caption uppercase tracking-widest text-editorial-muted mb-6">
+                Get Started
+            </p>
+            <h2 class="text-headline text-editorial-ink mb-4">
+                Operational AI.<br>Real Results.
+            </h2>
+            <p class="text-body text-editorial-muted mb-10 max-w-xl mx-auto">
+                Ready to transform AI from buzzword to business advantage? Let's talk about what's possible for your organization.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:hello@singularity.tech?subject=Demo%20Request" class="inline-block font-sans text-sm font-medium bg-editorial-ink text-editorial-cream px-8 py-4 hover:bg-editorial-text transition-colors">
+                    Book a Demo
+                </a>
+                <a href="mailto:hello@singularity.tech" class="inline-block font-sans text-sm font-medium text-editorial-ink border border-editorial-ink px-8 py-4 hover:bg-editorial-ink hover:text-editorial-cream transition-colors">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="editorial-rule-solid max-w-6xl mx-auto">
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="font-sans font-semibold text-editorial-ink tracking-wide text-sm uppercase mb-2">
+                    Singularity AI
+                </div>
+                <p class="font-sans text-caption text-editorial-muted">
+                    Operational AI. Real Results.
+                </p>
+            </div>
+            <div class="text-center md:text-right">
+                <a href="mailto:hello@singularity.tech" class="font-sans text-caption text-editorial-muted editorial-link hover:text-editorial-ink transition-colors">
+                    hello@singularity.tech
+                </a>
+                <p class="font-sans text-caption text-editorial-muted mt-2">
+                    &copy; 2025 Singularity AI. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Minimal JS for smooth interactions -->
+    <script>
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for scroll animations
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            observer.observe(section);
+        });
+
+        // Reset initial hero animations (they should play immediately)
+        document.querySelectorAll('.animate-fade-in:not(.animate-delay-100):not(.animate-delay-200):not(.animate-delay-300):not(.animate-delay-400)').forEach(el => {
+            if (el.closest('section:first-of-type')) {
+                el.style.opacity = '';
+                el.style.transform = '';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

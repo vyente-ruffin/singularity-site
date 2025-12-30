@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singularity AI - Turning AI Into Business Advantage</title>
+  <meta name="description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * {
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    /* Animated Mesh Gradient Background */
+    .mesh-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse at 0% 0%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 0%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 100%, rgba(236, 72, 153, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 0% 100%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+        linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      animation: meshMove 20s ease-in-out infinite;
+    }
+
+    @keyframes meshMove {
+      0%, 100% {
+        background:
+          radial-gradient(ellipse at 0% 0%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+          radial-gradient(ellipse at 100% 0%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+          radial-gradient(ellipse at 100% 100%, rgba(236, 72, 153, 0.25) 0%, transparent 50%),
+          radial-gradient(ellipse at 0% 100%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+          linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+      25% {
+        background:
+          radial-gradient(ellipse at 30% 20%, rgba(124, 58, 237, 0.35) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 30%, rgba(59, 130, 246, 0.35) 0%, transparent 50%),
+          radial-gradient(ellipse at 70% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
+          radial-gradient(ellipse at 20% 70%, rgba(16, 185, 129, 0.25) 0%, transparent 50%),
+          linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+      50% {
+        background:
+          radial-gradient(ellipse at 50% 50%, rgba(124, 58, 237, 0.25) 0%, transparent 50%),
+          radial-gradient(ellipse at 60% 10%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+          radial-gradient(ellipse at 40% 90%, rgba(236, 72, 153, 0.35) 0%, transparent 50%),
+          radial-gradient(ellipse at 90% 50%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+          linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+      75% {
+        background:
+          radial-gradient(ellipse at 80% 80%, rgba(124, 58, 237, 0.3) 0%, transparent 50%),
+          radial-gradient(ellipse at 20% 50%, rgba(59, 130, 246, 0.35) 0%, transparent 50%),
+          radial-gradient(ellipse at 50% 20%, rgba(236, 72, 153, 0.25) 0%, transparent 50%),
+          radial-gradient(ellipse at 80% 30%, rgba(16, 185, 129, 0.35) 0%, transparent 50%),
+          linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+      }
+    }
+
+    /* Glass Card Styles */
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.05),
+        0 2px 4px -2px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    }
+
+    .glass-strong {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .glass-subtle {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+
+    .glass-dark {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Gradient Button */
+    .btn-gradient {
+      background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    }
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(124, 58, 237, 0.4);
+    }
+
+    /* Glass Card Hover Effect */
+    .glass-card {
+      transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.75);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    /* Process Step Gradient Border */
+    .process-step {
+      position: relative;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .process-step::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
+
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #7c3aed, #3b82f6);
+      border-radius: 4px;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body class="min-h-screen text-slate-800 antialiased">
+  <!-- Animated Mesh Gradient Background -->
+  <div class="mesh-gradient"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 px-4 py-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="glass-strong rounded-2xl px-6 py-3 flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-blue-500 flex items-center justify-center">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <span class="font-bold text-lg gradient-text">Singularity</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#what-we-do" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">What We Do</a>
+          <a href="#who-its-for" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Who It's For</a>
+          <a href="#how-it-works" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">How It Works</a>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hidden md:flex items-center gap-3">
+          <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors px-4 py-2">Contact</a>
+          <a href="#demo" class="btn-gradient text-white text-sm font-semibold px-5 py-2.5 rounded-xl">Book a Demo</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-72 z-50 glass-strong p-6 md:hidden">
+    <div class="flex justify-end mb-8">
+      <button id="mobile-menu-close" class="p-2 text-slate-600">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col gap-4">
+      <a href="#what-we-do" class="text-lg font-medium text-slate-700 hover:text-violet-600 transition-colors py-2">What We Do</a>
+      <a href="#who-its-for" class="text-lg font-medium text-slate-700 hover:text-violet-600 transition-colors py-2">Who It's For</a>
+      <a href="#how-it-works" class="text-lg font-medium text-slate-700 hover:text-violet-600 transition-colors py-2">How It Works</a>
+      <hr class="border-slate-200 my-4">
+      <a href="#contact" class="text-lg font-medium text-slate-700 hover:text-violet-600 transition-colors py-2">Contact</a>
+      <a href="#demo" class="btn-gradient text-white text-center font-semibold px-5 py-3 rounded-xl mt-2">Book a Demo</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center justify-center px-4 pt-24 pb-16">
+    <div class="max-w-6xl mx-auto text-center">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 glass rounded-full px-4 py-2 mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span class="text-sm font-medium text-slate-600">Operational AI. Real Results.</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+        <span class="text-slate-800">Turning AI Into</span><br>
+        <span class="gradient-text">Business Advantage</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+        We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#demo" class="btn-gradient text-white font-semibold px-8 py-4 rounded-xl text-lg w-full sm:w-auto">
+          Book a Demo
+        </a>
+        <a href="#what-we-do" class="glass-strong text-slate-700 font-semibold px-8 py-4 rounded-xl text-lg hover:bg-white/80 transition-all w-full sm:w-auto">
+          Learn More
+        </a>
+      </div>
+
+      <!-- Trust Indicator -->
+      <div class="mt-16 glass-subtle rounded-2xl p-6 max-w-xl mx-auto float-animation">
+        <p class="text-sm text-slate-500 mb-3">Trusted by forward-thinking companies</p>
+        <div class="flex items-center justify-center gap-8 opacity-60">
+          <div class="text-slate-400 font-semibold">Enterprise</div>
+          <div class="text-slate-400 font-semibold">Startups</div>
+          <div class="text-slate-400 font-semibold">Scale-ups</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do Section -->
+  <section id="what-we-do" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="glass rounded-full px-4 py-1.5 text-sm font-medium text-violet-600 inline-block mb-4">What We Do</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+          AI That Actually <span class="gradient-text">Works</span>
+        </h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          We transform AI potential into operational reality with solutions designed for your specific business needs.
+        </p>
+      </div>
+
+      <!-- Service Cards -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Card 1 -->
+        <div class="glass glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Integrate AI Into Existing Workflows</h3>
+          <p class="text-slate-600 leading-relaxed">
+            We seamlessly embed AI capabilities into your current tools and processes, enhancing productivity without disrupting operations.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Identify High-ROI AI Use Cases</h3>
+          <p class="text-slate-600 leading-relaxed">
+            We analyze your operations to find the AI opportunities with the greatest potential impact and fastest time to value.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Deploy AI Responsibly</h3>
+          <p class="text-slate-600 leading-relaxed">
+            Security, governance, and compliance are built into every solution. We ensure AI works within your risk framework.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass glass-card rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">From Experimentation to Production</h3>
+          <p class="text-slate-600 leading-relaxed">
+            We bridge the gap between AI pilots and production-ready solutions that deliver consistent, measurable business value.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For Section -->
+  <section id="who-its-for" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="glass rounded-full px-4 py-1.5 text-sm font-medium text-blue-600 inline-block mb-4">Who It's For</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+          Built for <span class="gradient-text">Ambitious Teams</span>
+        </h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          Whether you're just starting or scaling your AI initiatives, we meet you where you are.
+        </p>
+      </div>
+
+      <!-- Audience Cards -->
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-strong glass-card rounded-2xl p-8 text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-violet-100 to-violet-200 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-violet-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">AI Beginners</h3>
+          <p class="text-slate-600">
+            Businesses beginning their AI journey who need a clear roadmap and expert guidance to get started right.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-strong glass-card rounded-2xl p-8 text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Scaling Companies</h3>
+          <p class="text-slate-600">
+            Organizations looking to scale existing AI initiatives and expand successful pilots across the enterprise.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-strong glass-card rounded-2xl p-8 text-center">
+          <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-cyan-100 to-cyan-200 flex items-center justify-center mb-6">
+            <svg class="w-8 h-8 text-cyan-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-slate-800 mb-3">Results-Driven Leaders</h3>
+          <p class="text-slate-600">
+            Executives who want practical, measurable AI results—not just experiments—that drive real business value.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Props Section -->
+  <section class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="glass-strong rounded-3xl p-8 md:p-12">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div>
+            <span class="glass rounded-full px-4 py-1.5 text-sm font-medium text-emerald-600 inline-block mb-4">Why Singularity</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-slate-800 mb-6">
+              Practical AI That <span class="gradient-text">Delivers</span>
+            </h2>
+            <p class="text-lg text-slate-600 mb-8">
+              We're not just consultants. We're strategic and technical partners committed to your success from strategy through integration to measurable results.
+            </p>
+
+            <!-- Value Points -->
+            <div class="space-y-4">
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-800">Practical AI, Measurable Results</h4>
+                  <p class="text-slate-600 text-sm">Solutions designed around your specific KPIs and business outcomes.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-800">Strategic & Technical Partnership</h4>
+                  <p class="text-slate-600 text-sm">End-to-end support from strategy through implementation and beyond.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-500 to-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 class="font-semibold text-slate-800">Security, Governance & Compliance</h4>
+                  <p class="text-slate-600 text-sm">Enterprise-grade AI with your risk framework in mind.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Visual -->
+          <div class="relative">
+            <div class="glass rounded-2xl p-6 float-animation">
+              <div class="text-center mb-6">
+                <div class="text-5xl font-bold gradient-text mb-2">3x</div>
+                <p class="text-slate-600">Average ROI on AI initiatives</p>
+              </div>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="glass-subtle rounded-xl p-4 text-center">
+                  <div class="text-2xl font-bold text-slate-800">90%</div>
+                  <p class="text-sm text-slate-500">Pilot to Production</p>
+                </div>
+                <div class="glass-subtle rounded-xl p-4 text-center">
+                  <div class="text-2xl font-bold text-slate-800">60%</div>
+                  <p class="text-sm text-slate-500">Time Saved</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <span class="glass rounded-full px-4 py-1.5 text-sm font-medium text-cyan-600 inline-block mb-4">How It Works</span>
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+          From Strategy to <span class="gradient-text">Results</span>
+        </h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          A proven process that takes you from AI potential to operational excellence.
+        </p>
+      </div>
+
+      <!-- Process Steps -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Step 1 -->
+        <div class="process-step rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-violet-500 to-violet-600 flex items-center justify-center text-white font-bold text-lg mb-4">1</div>
+          <h3 class="text-lg font-bold text-slate-800 mb-2">DISCOVER</h3>
+          <p class="text-slate-600 text-sm">Analyze your operations and identify the highest-impact AI opportunities.</p>
+        </div>
+
+        <!-- Arrow (desktop only) -->
+        <div class="hidden lg:flex items-center justify-center absolute left-1/4 top-1/2 -translate-y-1/2">
+          <svg class="w-8 h-8 text-violet-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+          </svg>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="process-step rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg mb-4">2</div>
+          <h3 class="text-lg font-bold text-slate-800 mb-2">DESIGN</h3>
+          <p class="text-slate-600 text-sm">Create tailored AI solutions that fit your workflows and goals.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="process-step rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-cyan-500 to-cyan-600 flex items-center justify-center text-white font-bold text-lg mb-4">3</div>
+          <h3 class="text-lg font-bold text-slate-800 mb-2">DEPLOY</h3>
+          <p class="text-slate-600 text-sm">Implement production-ready AI with security and governance built-in.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="process-step rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 mx-auto rounded-full bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white font-bold text-lg mb-4">4</div>
+          <h3 class="text-lg font-bold text-slate-800 mb-2">DELIVER</h3>
+          <p class="text-slate-600 text-sm">Measure results, optimize performance, and scale your success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="demo" class="py-24 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="glass-strong rounded-3xl p-8 md:p-16 relative overflow-hidden">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0 opacity-30">
+          <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-violet-400 to-transparent rounded-full blur-3xl"></div>
+          <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-400 to-transparent rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10">
+          <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+            Ready to Turn AI Into <span class="gradient-text">Results</span>?
+          </h2>
+          <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto">
+            Let's discuss how we can help your business leverage AI for measurable, operational improvements.
+          </p>
+
+          <!-- Tagline -->
+          <p class="text-xl font-semibold gradient-text mb-8">Operational AI. Real Results.</p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="mailto:hello@singularity.tech?subject=Demo Request" class="btn-gradient text-white font-semibold px-8 py-4 rounded-xl text-lg w-full sm:w-auto">
+              Book a Demo
+            </a>
+            <a href="mailto:hello@singularity.tech" class="glass text-slate-700 font-semibold px-8 py-4 rounded-xl text-lg hover:bg-white/80 transition-all w-full sm:w-auto" id="contact">
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="glass rounded-2xl p-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <!-- Logo & Company -->
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-blue-500 flex items-center justify-center">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <span class="font-bold text-lg text-slate-800">Singularity AI</span>
+          </div>
+
+          <!-- Links -->
+          <div class="flex items-center gap-8 text-sm text-slate-600">
+            <a href="#what-we-do" class="hover:text-violet-600 transition-colors">What We Do</a>
+            <a href="#who-its-for" class="hover:text-violet-600 transition-colors">Who It's For</a>
+            <a href="#how-it-works" class="hover:text-violet-600 transition-colors">How It Works</a>
+          </div>
+
+          <!-- Contact -->
+          <a href="mailto:hello@singularity.tech" class="text-slate-600 hover:text-violet-600 transition-colors">
+            hello@singularity.tech
+          </a>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-slate-200/50 text-center">
+          <p class="text-sm text-slate-500">&copy; 2025 Singularity AI. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Apply initial styles and observe elements
+    document.querySelectorAll('section > div').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    // Trigger initial animation for hero section
+    setTimeout(() => {
+      document.querySelectorAll('section > div').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }
+      });
+    }, 100);
+  </script>
+</body>
+</html>

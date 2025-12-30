@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Singularity AI | Turning AI Into Business Advantage</title>
+  <meta name="description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Singularity AI | Operational AI. Real Results.">
+  <meta property="og:description" content="We help companies integrate AI directly into their business workflows—not as experiments, but as production-ready solutions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://singularity.tech">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'pixel': ['"Press Start 2P"', 'monospace'],
+            'vt': ['"VT323"', 'monospace'],
+            'mono': ['"Space Mono"', 'monospace'],
+          },
+          colors: {
+            'neon': {
+              'cyan': '#00ffff',
+              'magenta': '#ff00ff',
+              'yellow': '#ffff00',
+              'pink': '#ff6ec7',
+              'purple': '#9d4edd',
+              'orange': '#ff7700',
+            },
+            'retro': {
+              'dark': '#0a0a0f',
+              'darker': '#050508',
+              'grid': '#1a1a2e',
+            }
+          },
+          animation: {
+            'glow': 'glow 2s ease-in-out infinite alternate',
+            'flicker': 'flicker 0.15s infinite',
+            'scan': 'scan 8s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-neon': 'pulse-neon 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'grid-move': 'grid-move 20s linear infinite',
+            'chromatic': 'chromatic 3s ease-in-out infinite',
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom animations */
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 5px currentColor,
+          0 0 10px currentColor,
+          0 0 20px currentColor,
+          0 0 40px currentColor;
+      }
+      to {
+        text-shadow:
+          0 0 10px currentColor,
+          0 0 20px currentColor,
+          0 0 40px currentColor,
+          0 0 80px currentColor;
+      }
+    }
+
+    @keyframes flicker {
+      0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: 1;
+      }
+      20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.4;
+      }
+    }
+
+    @keyframes scan {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    @keyframes pulse-neon {
+      0%, 100% {
+        opacity: 1;
+        filter: brightness(1);
+      }
+      50% {
+        opacity: 0.8;
+        filter: brightness(1.2);
+      }
+    }
+
+    @keyframes grid-move {
+      0% {
+        transform: perspective(500px) rotateX(60deg) translateY(0);
+      }
+      100% {
+        transform: perspective(500px) rotateX(60deg) translateY(100px);
+      }
+    }
+
+    @keyframes chromatic {
+      0%, 100% {
+        text-shadow:
+          -2px 0 #ff00ff,
+          2px 0 #00ffff;
+      }
+      50% {
+        text-shadow:
+          2px 0 #ff00ff,
+          -2px 0 #00ffff;
+      }
+    }
+
+    /* CRT scan lines overlay */
+    .crt-lines {
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+    }
+
+    /* VHS tracking lines */
+    .vhs-tracking {
+      background: linear-gradient(
+        transparent 0%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 100%
+      );
+      animation: scan 8s linear infinite;
+    }
+
+    /* Neon text effect */
+    .neon-text-cyan {
+      color: #00ffff;
+      text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff;
+    }
+
+    .neon-text-magenta {
+      color: #ff00ff;
+      text-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        0 0 20px #ff00ff,
+        0 0 40px #ff00ff;
+    }
+
+    .neon-text-yellow {
+      color: #ffff00;
+      text-shadow:
+        0 0 5px #ffff00,
+        0 0 10px #ffff00,
+        0 0 20px #ffff00;
+    }
+
+    .neon-text-pink {
+      color: #ff6ec7;
+      text-shadow:
+        0 0 5px #ff6ec7,
+        0 0 10px #ff6ec7,
+        0 0 20px #ff6ec7;
+    }
+
+    /* Chromatic aberration text */
+    .chromatic-text {
+      animation: chromatic 3s ease-in-out infinite;
+    }
+
+    /* Neon border */
+    .neon-border-cyan {
+      border: 2px solid #00ffff;
+      box-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        inset 0 0 5px rgba(0, 255, 255, 0.1);
+    }
+
+    .neon-border-magenta {
+      border: 2px solid #ff00ff;
+      box-shadow:
+        0 0 5px #ff00ff,
+        0 0 10px #ff00ff,
+        inset 0 0 5px rgba(255, 0, 255, 0.1);
+    }
+
+    /* Retro button */
+    .retro-btn {
+      position: relative;
+      background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+      border: 2px solid;
+      padding: 1rem 2rem;
+      font-family: 'VT323', monospace;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .retro-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transition: left 0.5s ease;
+    }
+
+    .retro-btn:hover::before {
+      left: 100%;
+    }
+
+    .retro-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.2);
+    }
+
+    /* Grid perspective */
+    .perspective-grid {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40vh;
+      background:
+        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      transform: perspective(500px) rotateX(60deg);
+      transform-origin: bottom center;
+      mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,1) 0%, transparent 100%);
+    }
+
+    /* Glowing orb */
+    .sun-glow {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, #ff6ec7 0%, #ff00ff 50%, #9d4edd 100%);
+      box-shadow:
+        0 0 60px #ff00ff,
+        0 0 100px #ff6ec7,
+        0 0 140px #9d4edd;
+      filter: blur(2px);
+    }
+
+    /* Step number styling */
+    .step-number {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 3rem;
+      opacity: 0.15;
+      position: absolute;
+      top: -20px;
+      left: 0;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0f;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00ffff, #ff00ff);
+      border-radius: 4px;
+    }
+
+    /* Selection styling */
+    ::selection {
+      background: #ff00ff;
+      color: #000;
+    }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0a0a0f;
+    }
+  </style>
+</head>
+<body class="bg-retro-dark text-white font-vt overflow-x-hidden">
+
+  <!-- CRT Scan Lines Overlay -->
+  <div class="fixed inset-0 crt-lines z-50"></div>
+
+  <!-- VHS Tracking Effect -->
+  <div class="fixed inset-0 vhs-tracking z-40 opacity-30"></div>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-30 backdrop-blur-sm bg-retro-dark/80 border-b border-neon-cyan/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 bg-neon-cyan rounded-full animate-pulse-neon"></div>
+          <span class="font-pixel text-xs sm:text-sm neon-text-cyan tracking-wider">SINGULARITY</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#about" class="text-gray-400 hover:text-neon-cyan transition-colors text-lg tracking-wide">ABOUT</a>
+          <a href="#process" class="text-gray-400 hover:text-neon-cyan transition-colors text-lg tracking-wide">PROCESS</a>
+          <a href="#contact" class="text-gray-400 hover:text-neon-cyan transition-colors text-lg tracking-wide">CONTACT</a>
+        </div>
+        <button class="retro-btn neon-border-cyan text-neon-cyan text-sm py-2 px-4">
+          DEMO
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <!-- Background Grid -->
+    <div class="perspective-grid"></div>
+
+    <!-- Synthwave Sun -->
+    <div class="absolute bottom-1/4 left-1/2 -translate-x-1/2">
+      <div class="sun-glow animate-pulse-neon"></div>
+    </div>
+
+    <!-- Horizontal lines through sun -->
+    <div class="absolute bottom-1/4 left-1/2 -translate-x-1/2 w-[300px] h-[200px] overflow-hidden">
+      <div class="absolute inset-0 flex flex-col justify-center gap-2">
+        <div class="h-[2px] bg-retro-dark w-full"></div>
+        <div class="h-[3px] bg-retro-dark w-full"></div>
+        <div class="h-[4px] bg-retro-dark w-full"></div>
+        <div class="h-[6px] bg-retro-dark w-full"></div>
+        <div class="h-[8px] bg-retro-dark w-full"></div>
+        <div class="h-[12px] bg-retro-dark w-full"></div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+      <h1 class="font-pixel text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-relaxed mb-8 animate-float">
+        <span class="chromatic-text">Turning AI Into</span>
+        <br>
+        <span class="neon-text-magenta animate-glow">Business Advantage</span>
+      </h1>
+
+      <p class="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed tracking-wide">
+        We help companies integrate AI directly into their business workflows—not as experiments, but as
+        <span class="neon-text-cyan">production-ready solutions</span>.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="#contact" class="retro-btn neon-border-magenta text-neon-magenta hover:bg-neon-magenta/10">
+          Book a Demo
+        </a>
+        <a href="#about" class="retro-btn neon-border-cyan text-neon-cyan hover:bg-neon-cyan/10">
+          Learn More
+        </a>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <div class="w-6 h-10 border-2 border-neon-cyan/50 rounded-full flex justify-center pt-2">
+          <div class="w-1 h-3 bg-neon-cyan rounded-full animate-pulse"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative corners -->
+    <div class="absolute top-20 left-4 w-16 h-16 border-l-2 border-t-2 border-neon-cyan/30"></div>
+    <div class="absolute top-20 right-4 w-16 h-16 border-r-2 border-t-2 border-neon-magenta/30"></div>
+    <div class="absolute bottom-4 left-4 w-16 h-16 border-l-2 border-b-2 border-neon-magenta/30"></div>
+    <div class="absolute bottom-4 right-4 w-16 h-16 border-r-2 border-b-2 border-neon-cyan/30"></div>
+  </section>
+
+  <!-- What We Do Section -->
+  <section id="about" class="relative py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="font-pixel text-xs text-neon-yellow tracking-widest">// SYSTEM.CAPABILITIES</span>
+        <h2 class="font-pixel text-xl sm:text-2xl md:text-3xl mt-4 neon-text-cyan animate-flicker">
+          What We Do
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Card 1 -->
+        <div class="relative p-6 bg-gradient-to-br from-retro-grid/50 to-transparent neon-border-cyan hover:bg-retro-grid/30 transition-all group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-cyan to-transparent"></div>
+          <div class="flex items-start gap-4">
+            <div class="text-4xl">
+              <svg class="w-12 h-12 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-neon-cyan mb-2 group-hover:animate-flicker">INTEGRATE</h3>
+              <p class="text-gray-400 text-xl leading-relaxed">Integrate AI into existing tools and workflows</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="relative p-6 bg-gradient-to-br from-retro-grid/50 to-transparent neon-border-magenta hover:bg-retro-grid/30 transition-all group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-magenta to-transparent"></div>
+          <div class="flex items-start gap-4">
+            <div class="text-4xl">
+              <svg class="w-12 h-12 text-neon-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-neon-magenta mb-2 group-hover:animate-flicker">IDENTIFY</h3>
+              <p class="text-gray-400 text-xl leading-relaxed">Identify high-ROI AI use cases across operations</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="relative p-6 bg-gradient-to-br from-retro-grid/50 to-transparent neon-border-cyan hover:bg-retro-grid/30 transition-all group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-cyan to-transparent"></div>
+          <div class="flex items-start gap-4">
+            <div class="text-4xl">
+              <svg class="w-12 h-12 text-neon-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-neon-cyan mb-2 group-hover:animate-flicker">DEPLOY</h3>
+              <p class="text-gray-400 text-xl leading-relaxed">Deploy AI responsibly with security and governance</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="relative p-6 bg-gradient-to-br from-retro-grid/50 to-transparent neon-border-magenta hover:bg-retro-grid/30 transition-all group">
+          <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-neon-magenta to-transparent"></div>
+          <div class="flex items-start gap-4">
+            <div class="text-4xl">
+              <svg class="w-12 h-12 text-neon-magenta" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-2xl font-bold text-neon-magenta mb-2 group-hover:animate-flicker">MOVE</h3>
+              <p class="text-gray-400 text-xl leading-relaxed">Move from experimentation to production-ready solutions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For Section -->
+  <section class="relative py-24 px-4 overflow-hidden">
+    <!-- Background decoration -->
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-neon-cyan rounded-full"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] border border-neon-magenta rounded-full"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] border border-neon-yellow rounded-full"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto relative z-10">
+      <div class="text-center mb-16">
+        <span class="font-pixel text-xs text-neon-pink tracking-widest">// USER.PROFILES</span>
+        <h2 class="font-pixel text-xl sm:text-2xl md:text-3xl mt-4 neon-text-magenta">
+          Who It's For
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Profile 1 -->
+        <div class="text-center p-8 border border-neon-cyan/20 bg-retro-dark/50 hover:border-neon-cyan/60 transition-all group">
+          <div class="w-20 h-20 mx-auto mb-6 relative">
+            <div class="absolute inset-0 bg-neon-cyan/20 rounded-full animate-pulse-neon"></div>
+            <div class="absolute inset-2 bg-retro-dark rounded-full flex items-center justify-center">
+              <span class="font-pixel text-2xl text-neon-cyan">01</span>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-neon-cyan mb-4 tracking-wide">BEGINNERS</h3>
+          <p class="text-gray-400 text-lg leading-relaxed">Businesses beginning their AI journey</p>
+        </div>
+
+        <!-- Profile 2 -->
+        <div class="text-center p-8 border border-neon-magenta/20 bg-retro-dark/50 hover:border-neon-magenta/60 transition-all group">
+          <div class="w-20 h-20 mx-auto mb-6 relative">
+            <div class="absolute inset-0 bg-neon-magenta/20 rounded-full animate-pulse-neon"></div>
+            <div class="absolute inset-2 bg-retro-dark rounded-full flex items-center justify-center">
+              <span class="font-pixel text-2xl text-neon-magenta">02</span>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-neon-magenta mb-4 tracking-wide">SCALERS</h3>
+          <p class="text-gray-400 text-lg leading-relaxed">Companies looking to scale existing AI initiatives</p>
+        </div>
+
+        <!-- Profile 3 -->
+        <div class="text-center p-8 border border-neon-yellow/20 bg-retro-dark/50 hover:border-neon-yellow/60 transition-all group">
+          <div class="w-20 h-20 mx-auto mb-6 relative">
+            <div class="absolute inset-0 bg-neon-yellow/20 rounded-full animate-pulse-neon"></div>
+            <div class="absolute inset-2 bg-retro-dark rounded-full flex items-center justify-center">
+              <span class="font-pixel text-2xl text-neon-yellow">03</span>
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-neon-yellow mb-4 tracking-wide">LEADERS</h3>
+          <p class="text-gray-400 text-lg leading-relaxed">Leaders who want practical, measurable AI results</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="process" class="relative py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="font-pixel text-xs text-neon-orange tracking-widest">// PROCESS.FLOW</span>
+        <h2 class="font-pixel text-xl sm:text-2xl md:text-3xl mt-4">
+          <span class="text-neon-cyan">DISCOVER</span>
+          <span class="text-gray-500 mx-2">></span>
+          <span class="text-neon-magenta">DESIGN</span>
+          <span class="text-gray-500 mx-2">></span>
+          <span class="text-neon-yellow">DEPLOY</span>
+          <span class="text-gray-500 mx-2">></span>
+          <span class="text-neon-pink">DELIVER</span>
+        </h2>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Step 1 -->
+        <div class="relative pl-8 md:pl-24 group">
+          <div class="absolute left-0 top-0 font-pixel text-5xl md:text-7xl text-neon-cyan/10 group-hover:text-neon-cyan/30 transition-colors">01</div>
+          <div class="border-l-2 border-neon-cyan pl-8 py-4">
+            <h3 class="font-pixel text-lg md:text-xl neon-text-cyan mb-4">DISCOVER</h3>
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+              We audit your operations to find the <span class="text-neon-cyan">highest-impact AI opportunities</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative pl-8 md:pl-24 group">
+          <div class="absolute left-0 top-0 font-pixel text-5xl md:text-7xl text-neon-magenta/10 group-hover:text-neon-magenta/30 transition-colors">02</div>
+          <div class="border-l-2 border-neon-magenta pl-8 py-4">
+            <h3 class="font-pixel text-lg md:text-xl neon-text-magenta mb-4">DESIGN</h3>
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+              We architect solutions that fit your <span class="text-neon-magenta">existing systems and workflows</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative pl-8 md:pl-24 group">
+          <div class="absolute left-0 top-0 font-pixel text-5xl md:text-7xl text-neon-yellow/10 group-hover:text-neon-yellow/30 transition-colors">03</div>
+          <div class="border-l-2 border-neon-yellow pl-8 py-4">
+            <h3 class="font-pixel text-lg md:text-xl neon-text-yellow mb-4">DEPLOY</h3>
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+              We implement AI that your team can actually use—<span class="text-neon-yellow">with proper guardrails</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="relative pl-8 md:pl-24 group">
+          <div class="absolute left-0 top-0 font-pixel text-5xl md:text-7xl text-neon-pink/10 group-hover:text-neon-pink/30 transition-colors">04</div>
+          <div class="border-l-2 border-neon-pink pl-8 py-4">
+            <h3 class="font-pixel text-lg md:text-xl neon-text-pink mb-4">DELIVER</h3>
+            <p class="text-xl md:text-2xl text-gray-300 leading-relaxed">
+              We measure, optimize, and prove the value in <span class="text-neon-pink">real business terms</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline Section -->
+  <section class="relative py-24 px-4 overflow-hidden">
+    <!-- Animated grid background -->
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute inset-0" style="background: linear-gradient(90deg, transparent 49%, rgba(0,255,255,0.1) 49%, rgba(0,255,255,0.1) 51%, transparent 51%), linear-gradient(transparent 49%, rgba(255,0,255,0.1) 49%, rgba(255,0,255,0.1) 51%, transparent 51%); background-size: 60px 60px;"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center relative z-10">
+      <div class="inline-block p-8 md:p-12 border-2 border-neon-cyan bg-retro-dark/80 relative">
+        <!-- Corner decorations -->
+        <div class="absolute -top-2 -left-2 w-4 h-4 bg-neon-cyan"></div>
+        <div class="absolute -top-2 -right-2 w-4 h-4 bg-neon-magenta"></div>
+        <div class="absolute -bottom-2 -left-2 w-4 h-4 bg-neon-magenta"></div>
+        <div class="absolute -bottom-2 -right-2 w-4 h-4 bg-neon-cyan"></div>
+
+        <h2 class="font-pixel text-2xl sm:text-3xl md:text-4xl chromatic-text leading-relaxed">
+          Operational AI.
+          <br>
+          <span class="neon-text-magenta animate-glow">Real Results.</span>
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="relative py-24 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="mb-12">
+        <span class="font-pixel text-xs text-neon-cyan tracking-widest animate-flicker">// INITIATE.CONTACT</span>
+        <h2 class="font-pixel text-xl sm:text-2xl md:text-3xl mt-4 text-white mb-6">
+          Ready to Get Started?
+        </h2>
+        <p class="text-xl md:text-2xl text-gray-400">
+          Let's discuss how AI can transform your operations.
+        </p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        <a href="mailto:hello@singularity.tech" class="retro-btn neon-border-magenta text-neon-magenta hover:bg-neon-magenta/10 text-xl px-8 py-4">
+          Book a Demo
+        </a>
+        <a href="mailto:hello@singularity.tech" class="retro-btn neon-border-cyan text-neon-cyan hover:bg-neon-cyan/10 text-xl px-8 py-4">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative py-16 px-4 border-t border-neon-cyan/20">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
+        <!-- Logo -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-3 h-3 bg-neon-cyan rounded-full animate-pulse-neon"></div>
+            <span class="font-pixel text-sm neon-text-cyan">SINGULARITY AI</span>
+          </div>
+          <p class="text-gray-500 text-lg">
+            Transforming businesses through operational AI.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div class="text-center">
+          <h4 class="font-pixel text-xs text-neon-magenta mb-4 tracking-widest">NAVIGATION</h4>
+          <div class="space-y-2">
+            <a href="#about" class="block text-gray-400 hover:text-neon-cyan transition-colors text-lg">About</a>
+            <a href="#process" class="block text-gray-400 hover:text-neon-cyan transition-colors text-lg">Process</a>
+            <a href="#contact" class="block text-gray-400 hover:text-neon-cyan transition-colors text-lg">Contact</a>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="text-right">
+          <h4 class="font-pixel text-xs text-neon-yellow mb-4 tracking-widest">CONTACT</h4>
+          <a href="mailto:hello@singularity.tech" class="text-gray-400 hover:text-neon-cyan transition-colors text-lg block">
+            hello@singularity.tech
+          </a>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="pt-8 border-t border-gray-800 text-center">
+        <p class="text-gray-600 text-sm mb-4">
+          &copy; 2025 Singularity AI. All rights reserved.
+        </p>
+        <p class="font-pixel text-xs text-gray-500 chromatic-text">
+          "AI isn't the future. It's the next competitive baseline."
+        </p>
+      </div>
+    </div>
+
+    <!-- Decorative elements -->
+    <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-cyan via-neon-magenta to-neon-yellow"></div>
+  </footer>
+
+  <!-- JavaScript for smooth interactions -->
+  <script>
+    // Add subtle parallax effect to hero elements
+    document.addEventListener('mousemove', (e) => {
+      const sun = document.querySelector('.sun-glow');
+      if (sun) {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        sun.style.transform = `translate(calc(-50% + ${x}px), ${y}px)`;
+      }
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Random flicker effect on neon elements
+    function randomFlicker() {
+      const flickerElements = document.querySelectorAll('.animate-flicker');
+      flickerElements.forEach(el => {
+        if (Math.random() > 0.95) {
+          el.style.opacity = '0.7';
+          setTimeout(() => {
+            el.style.opacity = '1';
+          }, 50);
+        }
+      });
+      requestAnimationFrame(randomFlicker);
+    }
+    randomFlicker();
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
