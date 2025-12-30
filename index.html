@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singularity | Compliance Clarity. Zero Fluff.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'grotesk': ['Space Grotesk', 'sans-serif'],
+                        'mono': ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        'neo-yellow': '#FFDE59',
+                        'neo-pink': '#FF6B9D',
+                        'neo-blue': '#6C63FF',
+                        'neo-green': '#00F5A0',
+                        'neo-orange': '#FF9F43',
+                        'neo-red': '#FF6B6B',
+                        'neo-cyan': '#00D4FF',
+                        'neo-purple': '#C56CF0',
+                        'neo-lime': '#BAFF39',
+                        'neo-black': '#1a1a2e',
+                    },
+                    boxShadow: {
+                        'neo': '8px 8px 0px 0px #1a1a2e',
+                        'neo-lg': '12px 12px 0px 0px #1a1a2e',
+                        'neo-xl': '16px 16px 0px 0px #1a1a2e',
+                        'neo-hover': '4px 4px 0px 0px #1a1a2e',
+                        'neo-white': '8px 8px 0px 0px #ffffff',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.6s ease-out forwards',
+                        'slide-left': 'slideLeft 0.6s ease-out forwards',
+                        'slide-right': 'slideRight 0.6s ease-out forwards',
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'scale-in': 'scaleIn 0.5s ease-out forwards',
+                        'glitch': 'glitch 0.3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(2deg)' },
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(60px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(60px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideRight: {
+                            '0%': { opacity: '0', transform: 'translateX(-60px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.8)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        glitch: {
+                            '0%, 100%': { transform: 'translate(0)' },
+                            '20%': { transform: 'translate(-2px, 2px)' },
+                            '40%': { transform: 'translate(-2px, -2px)' },
+                            '60%': { transform: 'translate(2px, 2px)' },
+                            '80%': { transform: 'translate(2px, -2px)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='8' fill='%23FF6B9D' stroke='%231a1a2e' stroke-width='3'/%3E%3C/svg%3E"), auto;
+        }
+
+        a, button {
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23FFDE59' stroke='%231a1a2e' stroke-width='3'/%3E%3C/svg%3E"), pointer;
+        }
+
+        .neo-border {
+            border: 4px solid #1a1a2e;
+        }
+
+        .neo-border-thick {
+            border: 6px solid #1a1a2e;
+        }
+
+        .neo-btn {
+            transition: all 0.15s ease;
+        }
+
+        .neo-btn:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0px 0px #1a1a2e;
+        }
+
+        .neo-btn:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px 0px #1a1a2e;
+        }
+
+        .neo-card {
+            transition: all 0.2s ease;
+        }
+
+        .neo-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px 0px #1a1a2e;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 2px #1a1a2e;
+            paint-order: stroke fill;
+        }
+
+        .text-stroke-lg {
+            -webkit-text-stroke: 3px #1a1a2e;
+            paint-order: stroke fill;
+        }
+
+        .marquee {
+            animation: marquee 30s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FF6B9D, #6C63FF, #00F5A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pattern-dots {
+            background-image: radial-gradient(#1a1a2e 2px, transparent 2px);
+            background-size: 20px 20px;
+        }
+
+        .pattern-grid {
+            background-image:
+                linear-gradient(#1a1a2e 1px, transparent 1px),
+                linear-gradient(90deg, #1a1a2e 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .pattern-diagonal {
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                #1a1a2e 10px,
+                #1a1a2e 12px
+            );
+        }
+
+        .zigzag-border {
+            background: linear-gradient(135deg, #1a1a2e 25%, transparent 25%) -20px 0,
+                        linear-gradient(225deg, #1a1a2e 25%, transparent 25%) -20px 0,
+                        linear-gradient(315deg, #1a1a2e 25%, transparent 25%),
+                        linear-gradient(45deg, #1a1a2e 25%, transparent 25%);
+            background-size: 40px 20px;
+            background-position: 0 0, 10px 0, 10px -10px, 0px 10px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .reveal.active {
+            animation: slideUp 0.6s ease-out forwards;
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+
+        .reveal-left.active {
+            animation: slideRight 0.6s ease-out forwards;
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+        }
+
+        .reveal-right.active {
+            animation: slideLeft 0.6s ease-out forwards;
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .reveal-scale.active {
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+
+        .skew-section {
+            transform: skewY(-3deg);
+        }
+
+        .skew-section > * {
+            transform: skewY(3deg);
+        }
+
+        .rotate-neg {
+            transform: rotate(-2deg);
+        }
+
+        .rotate-pos {
+            transform: rotate(2deg);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFDE59;
+            border: 4px solid #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF6B9D;
+        }
+
+        .blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+
+        .noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+    </style>
+</head>
+<body class="font-grotesk bg-[#FAFAFA] text-neo-black overflow-x-hidden">
+    <!-- Noise Overlay -->
+    <div class="fixed inset-0 pointer-events-none noise z-50"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-40 px-4 py-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-white neo-border shadow-neo flex items-center justify-between px-6 py-4">
+                <!-- Logo -->
+                <a href="#" class="text-2xl font-bold tracking-tight flex items-center gap-2">
+                    <div class="w-10 h-10 bg-neo-yellow neo-border flex items-center justify-center rotate-12 hover:rotate-0 transition-transform">
+                        <span class="text-xl">S</span>
+                    </div>
+                    <span class="hidden sm:block">Singularity</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-2">
+                    <a href="#product" class="px-4 py-2 font-medium hover:bg-neo-yellow neo-btn">Product</a>
+                    <a href="#how-it-works" class="px-4 py-2 font-medium hover:bg-neo-pink neo-btn">How it works</a>
+                    <a href="#why-it-matters" class="px-4 py-2 font-medium hover:bg-neo-green neo-btn">Why it matters</a>
+                    <a href="#pricing" class="px-4 py-2 font-medium hover:bg-neo-blue hover:text-white neo-btn">Pricing</a>
+                    <a href="#contact" class="bg-neo-black text-white px-6 py-2 neo-btn shadow-neo hover:shadow-neo-hover font-bold">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden w-12 h-12 bg-neo-yellow neo-border shadow-neo neo-btn flex flex-col items-center justify-center gap-1.5">
+                    <span class="w-6 h-1 bg-neo-black"></span>
+                    <span class="w-6 h-1 bg-neo-black"></span>
+                    <span class="w-6 h-1 bg-neo-black"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden mt-2 max-w-7xl mx-auto">
+            <div class="bg-neo-lime neo-border shadow-neo p-4 flex flex-col gap-2">
+                <a href="#product" class="px-4 py-3 font-bold bg-white neo-border shadow-neo neo-btn text-center">Product</a>
+                <a href="#how-it-works" class="px-4 py-3 font-bold bg-white neo-border shadow-neo neo-btn text-center">How it works</a>
+                <a href="#why-it-matters" class="px-4 py-3 font-bold bg-white neo-border shadow-neo neo-btn text-center">Why it matters</a>
+                <a href="#pricing" class="px-4 py-3 font-bold bg-white neo-border shadow-neo neo-btn text-center">Pricing</a>
+                <a href="#contact" class="px-4 py-3 font-bold bg-neo-black text-white neo-border shadow-neo neo-btn text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen pt-32 pb-20 px-4 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-40 right-10 w-64 h-64 bg-neo-yellow opacity-50 blob animate-float"></div>
+        <div class="absolute bottom-40 left-10 w-48 h-48 bg-neo-pink opacity-50 blob animate-float" style="animation-delay: -2s;"></div>
+        <div class="absolute top-60 left-1/4 w-32 h-32 bg-neo-blue opacity-30 rotate-45 animate-spin-slow"></div>
+        <div class="absolute bottom-60 right-1/4 w-24 h-24 bg-neo-green opacity-40 animate-bounce-slow"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <!-- Main Hero Content -->
+            <div class="text-center mb-16">
+                <div class="inline-block bg-neo-lime neo-border px-6 py-2 mb-8 rotate-neg shadow-neo reveal">
+                    <span class="font-mono text-sm font-bold">// BUILT BY ENGINEERS WHO HATE GUESSWORK</span>
+                </div>
+
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight reveal stagger-1">
+                    <span class="block">Compliance clarity.</span>
+                    <span class="block text-stroke-lg text-transparent bg-clip-text bg-gradient-to-r from-neo-pink via-neo-blue to-neo-green">Zero fluff.</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl max-w-4xl mx-auto mb-12 leading-relaxed reveal stagger-2">
+                    Singularity turns raw configuration data into <span class="bg-neo-yellow px-2 neo-border inline-block rotate-1">actionable compliance answers</span> against frameworks like CMMC, with <span class="bg-neo-pink px-2 neo-border inline-block -rotate-1">evidence you can trace</span>.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal stagger-3">
+                    <a href="#contact" class="bg-neo-black text-white text-xl px-10 py-5 neo-border shadow-neo-lg neo-btn font-bold">
+                        Request a demo
+                    </a>
+                    <a href="#how-it-works" class="bg-white text-xl px-10 py-5 neo-border shadow-neo neo-btn font-bold hover:bg-neo-cyan">
+                        See how it works &darr;
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Callouts - Pipeline Visualization -->
+            <div class="grid md:grid-cols-3 gap-6 mt-20">
+                <!-- Input -->
+                <div class="reveal stagger-1">
+                    <div class="bg-neo-yellow neo-border-thick shadow-neo-lg p-8 neo-card rotate-neg">
+                        <div class="text-6xl mb-4">&#128229;</div>
+                        <h3 class="text-2xl font-bold mb-2 font-mono">INPUT</h3>
+                        <p class="text-lg font-medium">configs, exports, screenshots, notes</p>
+                        <div class="mt-4 flex gap-2 flex-wrap">
+                            <span class="bg-white px-3 py-1 neo-border text-sm font-bold">.json</span>
+                            <span class="bg-white px-3 py-1 neo-border text-sm font-bold">.yaml</span>
+                            <span class="bg-white px-3 py-1 neo-border text-sm font-bold">.png</span>
+                            <span class="bg-white px-3 py-1 neo-border text-sm font-bold">.txt</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Process -->
+                <div class="reveal stagger-2">
+                    <div class="bg-neo-blue text-white neo-border-thick shadow-neo-lg p-8 neo-card">
+                        <div class="text-6xl mb-4">&#9881;</div>
+                        <h3 class="text-2xl font-bold mb-2 font-mono">PROCESS</h3>
+                        <p class="text-lg font-medium">normalize, map controls, explain gaps</p>
+                        <div class="mt-4 font-mono text-sm bg-neo-black/30 p-3 neo-border border-white">
+                            <span class="text-neo-green">$</span> singularity analyze --deep
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output -->
+                <div class="reveal stagger-3">
+                    <div class="bg-neo-green neo-border-thick shadow-neo-lg p-8 neo-card rotate-pos">
+                        <div class="text-6xl mb-4">&#10004;</div>
+                        <h3 class="text-2xl font-bold mb-2 font-mono">OUTPUT</h3>
+                        <p class="text-lg font-medium">pass or fail, rationale, evidence, next actions</p>
+                        <div class="mt-4 flex gap-2 flex-wrap">
+                            <span class="bg-white px-3 py-1 neo-border text-sm font-bold text-green-600">PASS</span>
+                            <span class="bg-white px-3 py-1 neo-border text-sm font-bold text-red-600">FAIL</span>
+                            <span class="bg-white px-3 py-1 neo-border text-sm font-bold">FIX</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Arrows between cards (desktop) -->
+            <div class="hidden md:flex justify-center items-center gap-4 -mt-24 mb-8 relative z-20">
+                <div class="w-1/3"></div>
+                <div class="text-6xl animate-pulse">&#8594;</div>
+                <div class="w-1/3"></div>
+                <div class="text-6xl animate-pulse">&#8594;</div>
+                <div class="w-1/3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Banner -->
+    <div class="bg-neo-black py-4 neo-border-thick border-l-0 border-r-0 overflow-hidden">
+        <div class="flex whitespace-nowrap marquee">
+            <span class="text-white text-2xl font-bold mx-8">COMPLIANCE CLARITY</span>
+            <span class="text-neo-yellow text-2xl mx-8">&#9733;</span>
+            <span class="text-white text-2xl font-bold mx-8">ZERO FLUFF</span>
+            <span class="text-neo-pink text-2xl mx-8">&#9733;</span>
+            <span class="text-white text-2xl font-bold mx-8">EVIDENCE FIRST</span>
+            <span class="text-neo-green text-2xl mx-8">&#9733;</span>
+            <span class="text-white text-2xl font-bold mx-8">NO MYSTERY SCORING</span>
+            <span class="text-neo-blue text-2xl mx-8">&#9733;</span>
+            <span class="text-white text-2xl font-bold mx-8">COMPLIANCE CLARITY</span>
+            <span class="text-neo-yellow text-2xl mx-8">&#9733;</span>
+            <span class="text-white text-2xl font-bold mx-8">ZERO FLUFF</span>
+            <span class="text-neo-pink text-2xl mx-8">&#9733;</span>
+            <span class="text-white text-2xl font-bold mx-8">EVIDENCE FIRST</span>
+            <span class="text-neo-green text-2xl mx-8">&#9733;</span>
+            <span class="text-white text-2xl font-bold mx-8">NO MYSTERY SCORING</span>
+            <span class="text-neo-blue text-2xl mx-8">&#9733;</span>
+        </div>
+    </div>
+
+    <!-- What Singularity Is Section -->
+    <section id="product" class="py-24 px-4 bg-white pattern-dots relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left Content -->
+                <div class="reveal-left">
+                    <div class="inline-block bg-neo-pink neo-border px-4 py-2 mb-6 -rotate-2 shadow-neo">
+                        <span class="font-mono font-bold">WHAT SINGULARITY IS</span>
+                    </div>
+
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+                        Your compliance <span class="bg-neo-yellow px-2 neo-border inline-block rotate-1">copilot</span> for real systems
+                    </h2>
+
+                    <p class="text-xl mb-10 leading-relaxed">
+                        Most compliance tooling stops at checklists. Singularity reads what your systems <span class="font-bold underline decoration-neo-pink decoration-4">actually look like</span>, maps it to control requirements, and tells you what to fix with clear reasoning.
+                    </p>
+                </div>
+
+                <!-- Right - Feature Bullets -->
+                <div class="space-y-6 reveal-right">
+                    <div class="bg-neo-yellow neo-border shadow-neo p-6 neo-card -rotate-1">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">&#9889;</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Fast scope from messy data</h4>
+                                <p>Upload anything. We figure out the structure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neo-cyan neo-border shadow-neo p-6 neo-card rotate-1">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">&#128279;</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Evidence linked to each finding</h4>
+                                <p>Every claim traces back to real data.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neo-lime neo-border shadow-neo p-6 neo-card -rotate-1">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">&#128172;</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Plain language summaries for leadership</h4>
+                                <p>No jargon. Clear risk narrative.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-neo-orange neo-border shadow-neo p-6 neo-card rotate-1">
+                        <div class="flex items-start gap-4">
+                            <div class="text-4xl">&#128736;</div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Engineering level detail for remediation</h4>
+                                <p>Exact steps. Exact ownership.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What It Does Section -->
+    <section class="py-24 px-4 bg-neo-black text-white relative overflow-hidden">
+        <!-- Background Shapes -->
+        <div class="absolute top-10 left-10 w-40 h-40 bg-neo-purple opacity-20 blob animate-float"></div>
+        <div class="absolute bottom-10 right-10 w-60 h-60 bg-neo-blue opacity-20 blob animate-float" style="animation-delay: -3s;"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block bg-neo-green neo-border px-4 py-2 mb-6 rotate-2 shadow-neo text-neo-black">
+                    <span class="font-mono font-bold">WHAT IT DOES</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    From <span class="text-neo-yellow">config</span> to <span class="text-neo-green">control coverage</span>
+                </h2>
+            </div>
+
+            <!-- Feature Cards Grid -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Control Mapping -->
+                <div class="reveal stagger-1">
+                    <div class="bg-white text-neo-black neo-border-thick shadow-neo-lg p-8 h-full neo-card">
+                        <div class="w-20 h-20 bg-neo-yellow neo-border flex items-center justify-center mb-6 rotate-3">
+                            <span class="text-4xl">&#128506;</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Control Mapping</h3>
+                        <p class="text-lg">Map artifacts and settings to CMMC style control intent. Know exactly which controls your config addresses.</p>
+                        <div class="mt-6 font-mono text-sm bg-neo-black text-neo-green p-4 neo-border">
+                            config.yaml &#8594; AC-2, SC-7, IA-5
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gap Detection -->
+                <div class="reveal stagger-2">
+                    <div class="bg-white text-neo-black neo-border-thick shadow-neo-lg p-8 h-full neo-card">
+                        <div class="w-20 h-20 bg-neo-pink neo-border flex items-center justify-center mb-6 -rotate-3">
+                            <span class="text-4xl">&#128269;</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Gap Detection</h3>
+                        <p class="text-lg">Identify missing settings, weak defaults, and inconsistent policy implementation before auditors do.</p>
+                        <div class="mt-6 flex gap-2 flex-wrap">
+                            <span class="bg-neo-red text-white px-3 py-1 neo-border font-bold">MISSING</span>
+                            <span class="bg-neo-orange px-3 py-1 neo-border font-bold">WEAK</span>
+                            <span class="bg-neo-yellow px-3 py-1 neo-border font-bold">INCONSISTENT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Remediation Guidance -->
+                <div class="reveal stagger-3">
+                    <div class="bg-white text-neo-black neo-border-thick shadow-neo-lg p-8 h-full neo-card">
+                        <div class="w-20 h-20 bg-neo-blue neo-border flex items-center justify-center mb-6 rotate-3">
+                            <span class="text-4xl">&#128161;</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Remediation Guidance</h3>
+                        <p class="text-lg">Suggest concrete next steps and ownership categories. No vague recommendations.</p>
+                        <div class="mt-6 space-y-2 font-mono text-sm">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 bg-neo-green neo-border"></span>
+                                <span>DevOps: Update firewall rules</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 bg-neo-blue neo-border"></span>
+                                <span>Security: Review access policy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Audit Ready Output -->
+                <div class="reveal stagger-4">
+                    <div class="bg-white text-neo-black neo-border-thick shadow-neo-lg p-8 h-full neo-card">
+                        <div class="w-20 h-20 bg-neo-green neo-border flex items-center justify-center mb-6 -rotate-3">
+                            <span class="text-4xl">&#128196;</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">Audit Ready Output</h3>
+                        <p class="text-lg">Exportable summaries and evidence trails. Hand it to your assessor with confidence.</p>
+                        <div class="mt-6 flex gap-4">
+                            <div class="bg-neo-lime neo-border px-4 py-2 font-bold">PDF</div>
+                            <div class="bg-neo-cyan neo-border px-4 py-2 font-bold">JSON</div>
+                            <div class="bg-neo-yellow neo-border px-4 py-2 font-bold">CSV</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 px-4 bg-neo-lime relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <div class="inline-block bg-neo-black text-white neo-border px-4 py-2 mb-6 -rotate-1 shadow-neo">
+                    <span class="font-mono font-bold">HOW IT WORKS</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Simple pipeline. <span class="text-stroke text-transparent">Serious output.</span>
+                </h2>
+            </div>
+
+            <!-- Steps -->
+            <div class="relative">
+                <!-- Connection Line (desktop) -->
+                <div class="hidden lg:block absolute top-1/2 left-0 right-0 h-4 bg-neo-black -translate-y-1/2 z-0"></div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+                    <!-- Step 1: Ingest -->
+                    <div class="reveal stagger-1">
+                        <div class="bg-white neo-border-thick shadow-neo-lg p-8 neo-card h-full">
+                            <div class="w-16 h-16 bg-neo-yellow neo-border-thick flex items-center justify-center mb-6 text-3xl font-bold rotate-6">
+                                1
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 font-mono">INGEST</h3>
+                            <p class="text-lg">Upload or connect your config sources. Keep it messy, we handle normalization.</p>
+                            <div class="mt-6 text-6xl">&#128230;</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Analyze -->
+                    <div class="reveal stagger-2">
+                        <div class="bg-white neo-border-thick shadow-neo-lg p-8 neo-card h-full">
+                            <div class="w-16 h-16 bg-neo-pink neo-border-thick flex items-center justify-center mb-6 text-3xl font-bold -rotate-6">
+                                2
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 font-mono">ANALYZE</h3>
+                            <p class="text-lg">We interpret settings, compare to control requirements, and surface risk.</p>
+                            <div class="mt-6 text-6xl">&#128300;</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Prove -->
+                    <div class="reveal stagger-3">
+                        <div class="bg-white neo-border-thick shadow-neo-lg p-8 neo-card h-full">
+                            <div class="w-16 h-16 bg-neo-blue text-white neo-border-thick flex items-center justify-center mb-6 text-3xl font-bold rotate-6">
+                                3
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 font-mono">PROVE</h3>
+                            <p class="text-lg">Every claim points back to the evidence that triggered it.</p>
+                            <div class="mt-6 text-6xl">&#128203;</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Act -->
+                    <div class="reveal stagger-4">
+                        <div class="bg-white neo-border-thick shadow-neo-lg p-8 neo-card h-full">
+                            <div class="w-16 h-16 bg-neo-green neo-border-thick flex items-center justify-center mb-6 text-3xl font-bold -rotate-6">
+                                4
+                            </div>
+                            <h3 class="text-2xl font-bold mb-4 font-mono">ACT</h3>
+                            <p class="text-lg">Prioritized fixes with clear effort and impact notes.</p>
+                            <div class="mt-6 text-6xl">&#127919;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who It's For Section -->
+    <section class="py-24 px-4 bg-white relative overflow-hidden">
+        <div class="absolute inset-0 pattern-grid opacity-10"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block bg-neo-cyan neo-border px-4 py-2 mb-6 rotate-1 shadow-neo">
+                    <span class="font-mono font-bold">WHO IT'S FOR</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Built for teams that <span class="bg-neo-pink px-2 neo-border">ship</span> and teams that <span class="bg-neo-yellow px-2 neo-border">sign</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Security & GRC -->
+                <div class="reveal stagger-1">
+                    <div class="bg-neo-purple text-white neo-border-thick shadow-neo-lg p-8 neo-card h-full">
+                        <div class="text-6xl mb-6">&#128737;</div>
+                        <h3 class="text-2xl font-bold mb-4">Security & GRC Teams</h3>
+                        <p class="text-lg">Who need defensible answers, not checkbox theater.</p>
+                        <div class="mt-6 bg-white/20 p-4 neo-border border-white font-mono text-sm">
+                            "Finally, evidence I can stand behind."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Infrastructure & Network -->
+                <div class="reveal stagger-2">
+                    <div class="bg-neo-orange neo-border-thick shadow-neo-lg p-8 neo-card h-full">
+                        <div class="text-6xl mb-6">&#128421;</div>
+                        <h3 class="text-2xl font-bold mb-4">Infrastructure & Network Engineers</h3>
+                        <p class="text-lg">Who need exact remediation targets, not vague directives.</p>
+                        <div class="mt-6 bg-white/50 p-4 neo-border font-mono text-sm">
+                            "Tell me exactly what to fix."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Founders & Leaders -->
+                <div class="reveal stagger-3">
+                    <div class="bg-neo-blue text-white neo-border-thick shadow-neo-lg p-8 neo-card h-full">
+                        <div class="text-6xl mb-6">&#128188;</div>
+                        <h3 class="text-2xl font-bold mb-4">Founders & Leaders</h3>
+                        <p class="text-lg">Who need a clear risk narrative for stakeholders.</p>
+                        <div class="mt-6 bg-white/20 p-4 neo-border border-white font-mono text-sm">
+                            "I can finally explain this to the board."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It Matters Section -->
+    <section id="why-it-matters" class="py-24 px-4 bg-neo-black text-white skew-section">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block bg-neo-red neo-border px-4 py-2 mb-6 -rotate-2 shadow-neo text-white">
+                    <span class="font-mono font-bold">WHY IT MATTERS</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Stop debating. <span class="text-neo-green">Start closing gaps.</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="reveal stagger-1">
+                    <div class="bg-neo-red/20 neo-border border-neo-red p-8 h-full">
+                        <div class="text-4xl mb-4">&#128176;</div>
+                        <p class="text-xl font-bold">Compliance work is <span class="text-neo-yellow">expensive</span> when the scope is fuzzy.</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-2">
+                    <div class="bg-neo-orange/20 neo-border border-neo-orange p-8 h-full">
+                        <div class="text-4xl mb-4">&#128683;</div>
+                        <p class="text-xl font-bold">Findings are <span class="text-neo-pink">useless</span> when they're not traceable.</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-3">
+                    <div class="bg-neo-yellow/20 neo-border border-neo-yellow p-8 h-full">
+                        <div class="text-4xl mb-4">&#128679;</div>
+                        <p class="text-xl font-bold">Remediation <span class="text-neo-cyan">stalls</span> when ownership is unclear.</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-4">
+                    <div class="bg-neo-green/20 neo-border border-neo-green p-8 h-full">
+                        <div class="text-4xl mb-4">&#10024;</div>
+                        <p class="text-xl font-bold">Singularity focuses on <span class="text-neo-green">clarity, evidence, and execution</span>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section class="py-24 px-4 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block bg-neo-black text-white neo-border px-4 py-2 mb-6 rotate-2 shadow-neo">
+                    <span class="font-mono font-bold">OUR PRINCIPLES</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    The rules we <span class="line-through decoration-neo-red decoration-8">will not</span> break
+                </h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="reveal stagger-1">
+                    <div class="bg-neo-yellow neo-border-thick shadow-neo p-6 neo-card h-full text-center">
+                        <div class="w-20 h-20 bg-white neo-border mx-auto mb-4 flex items-center justify-center text-4xl rotate-12">
+                            &#128218;
+                        </div>
+                        <h3 class="text-xl font-bold">Evidence first</h3>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-2">
+                    <div class="bg-neo-pink neo-border-thick shadow-neo p-6 neo-card h-full text-center">
+                        <div class="w-20 h-20 bg-white neo-border mx-auto mb-4 flex items-center justify-center text-4xl -rotate-12">
+                            &#128064;
+                        </div>
+                        <h3 class="text-xl font-bold">No mystery scoring</h3>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-3">
+                    <div class="bg-neo-cyan neo-border-thick shadow-neo p-6 neo-card h-full text-center">
+                        <div class="w-20 h-20 bg-white neo-border mx-auto mb-4 flex items-center justify-center text-4xl rotate-12">
+                            &#128161;
+                        </div>
+                        <h3 class="text-xl font-bold">Explainable conclusions</h3>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-4">
+                    <div class="bg-neo-lime neo-border-thick shadow-neo p-6 neo-card h-full text-center">
+                        <div class="w-20 h-20 bg-white neo-border mx-auto mb-4 flex items-center justify-center text-4xl -rotate-12">
+                            &#128260;
+                        </div>
+                        <h3 class="text-xl font-bold">Designed for iteration</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 px-4 bg-neo-purple text-white relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-8 zigzag-border"></div>
+        <div class="absolute bottom-0 left-0 w-full h-8 zigzag-border rotate-180"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block bg-neo-yellow text-neo-black neo-border px-4 py-2 mb-6 -rotate-1 shadow-neo">
+                    <span class="font-mono font-bold">PRICING</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                    Start small. Scale when it proves itself.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Pilot -->
+                <div class="reveal stagger-1">
+                    <div class="bg-white text-neo-black neo-border-thick shadow-neo-lg p-8 neo-card h-full flex flex-col">
+                        <div class="text-lg font-mono font-bold text-neo-purple mb-2">PILOT</div>
+                        <h3 class="text-3xl font-bold mb-6">Test the waters</h3>
+                        <ul class="space-y-4 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>One environment</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Baseline findings</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Exportable report</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#contact" class="block text-center bg-neo-yellow neo-border shadow-neo neo-btn py-4 font-bold text-lg">
+                                Start Pilot
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team -->
+                <div class="reveal stagger-2">
+                    <div class="bg-neo-black text-white neo-border-thick shadow-neo-lg p-8 neo-card h-full flex flex-col relative">
+                        <div class="absolute -top-4 -right-4 bg-neo-pink neo-border px-4 py-1 font-bold rotate-12">
+                            POPULAR
+                        </div>
+                        <div class="text-lg font-mono font-bold text-neo-green mb-2">TEAM</div>
+                        <h3 class="text-3xl font-bold mb-6">Go deeper</h3>
+                        <ul class="space-y-4 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Multiple environments</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Shared workspace</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Remediation tracking</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#contact" class="block text-center bg-neo-green text-neo-black neo-border shadow-neo-white neo-btn py-4 font-bold text-lg">
+                                Contact Sales
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="reveal stagger-3">
+                    <div class="bg-white text-neo-black neo-border-thick shadow-neo-lg p-8 neo-card h-full flex flex-col">
+                        <div class="text-lg font-mono font-bold text-neo-blue mb-2">ENTERPRISE</div>
+                        <h3 class="text-3xl font-bold mb-6">Full control</h3>
+                        <ul class="space-y-4 flex-grow">
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Custom integrations</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Governance features</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="text-neo-green text-xl">&#10003;</span>
+                                <span>Dedicated support</span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="#contact" class="block text-center bg-neo-blue text-white neo-border shadow-neo neo-btn py-4 font-bold text-lg">
+                                Talk Pricing
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 px-4 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <div class="inline-block bg-neo-orange neo-border px-4 py-2 mb-6 rotate-1 shadow-neo">
+                    <span class="font-mono font-bold">FAQ</span>
+                </div>
+
+                <h2 class="text-4xl md:text-5xl font-bold">
+                    Questions? Answers.
+                </h2>
+            </div>
+
+            <div class="space-y-6">
+                <div class="reveal stagger-1">
+                    <div class="bg-neo-yellow neo-border shadow-neo p-6 neo-card">
+                        <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                            <span class="w-8 h-8 bg-neo-black text-white neo-border flex items-center justify-center text-sm font-bold">Q</span>
+                            What data do you need?
+                        </h3>
+                        <p class="text-lg ml-11">Anything that represents real configuration state. Exports, files, notes, screenshots. If it shows how your system is configured, we can use it.</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-2">
+                    <div class="bg-neo-cyan neo-border shadow-neo p-6 neo-card">
+                        <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                            <span class="w-8 h-8 bg-neo-black text-white neo-border flex items-center justify-center text-sm font-bold">Q</span>
+                            Is this automated compliance certification?
+                        </h3>
+                        <p class="text-lg ml-11">No. It's an analysis and decision support layer to help you prepare and remediate. We don't certify—we clarify.</p>
+                    </div>
+                </div>
+
+                <div class="reveal stagger-3">
+                    <div class="bg-neo-lime neo-border shadow-neo p-6 neo-card">
+                        <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                            <span class="w-8 h-8 bg-neo-black text-white neo-border flex items-center justify-center text-sm font-bold">Q</span>
+                            Can we start with one system?
+                        </h3>
+                        <p class="text-lg ml-11">Yes. A focused pilot is the fastest way to validate value. Start small, prove it works, then expand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="py-24 px-4 bg-neo-black text-white relative overflow-hidden">
+        <!-- Animated Background -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-neo-pink opacity-20 blob animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-neo-blue opacity-20 blob animate-float" style="animation-delay: -2s;"></div>
+            <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-neo-green opacity-10 blob animate-float" style="animation-delay: -4s;"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="reveal">
+                <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+                    Bring your <span class="bg-neo-pink px-3 neo-border rotate-2 inline-block">mess</span>.<br>
+                    We'll return <span class="bg-neo-green text-neo-black px-3 neo-border -rotate-2 inline-block">clarity</span>.
+                </h2>
+
+                <p class="text-2xl mb-12 max-w-3xl mx-auto">
+                    Send one environment. Get a baseline. Decide fast.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="mailto:hello@singularity.ai" class="bg-neo-yellow text-neo-black text-xl px-12 py-6 neo-border-thick shadow-neo-lg neo-btn font-bold">
+                        Request a demo
+                    </a>
+                    <a href="mailto:hello@singularity.ai" class="bg-white text-neo-black text-xl px-12 py-6 neo-border-thick shadow-neo-lg neo-btn font-bold">
+                        Contact us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-neo-black text-white py-16 px-4 neo-border-thick border-l-0 border-r-0 border-b-0">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-12 h-12 bg-neo-yellow neo-border flex items-center justify-center rotate-12">
+                            <span class="text-2xl font-bold text-neo-black">S</span>
+                        </div>
+                        <span class="text-3xl font-bold">Singularity</span>
+                    </div>
+                    <p class="text-lg text-gray-400 mb-6">
+                        Tech and AI for cybersecurity compliance analysis.
+                    </p>
+                    <a href="mailto:hello@singularity.ai" class="inline-block bg-neo-green text-neo-black neo-border px-6 py-3 font-bold neo-btn shadow-neo">
+                        hello@singularity.ai
+                    </a>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-neo-yellow">Legal</h4>
+                    <ul class="space-y-4">
+                        <li><a href="#" class="hover:text-neo-pink transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-neo-pink transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-neo-pink transition-colors">Security</a></li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-neo-cyan">Connect</h4>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="#" class="hover:text-neo-pink transition-colors flex items-center gap-2">
+                                <span class="w-8 h-8 bg-neo-blue neo-border flex items-center justify-center text-sm">in</span>
+                                LinkedIn
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t-4 border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 font-mono text-sm">
+                    &copy; 2025 Singularity. All rights reserved.
+                </p>
+                <div class="flex items-center gap-2">
+                    <span class="text-gray-500 font-mono text-sm">Built with</span>
+                    <span class="text-neo-pink animate-pulse">&#10084;</span>
+                    <span class="text-gray-500 font-mono text-sm">by engineers who hate guesswork</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll Animations Script -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 150;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        // Initial check
+        revealOnScroll();
+
+        // Check on scroll with throttling
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    revealOnScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.blob');
+
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.1 + (index * 0.05);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add glitch effect on hover for certain elements
+        const glitchElements = document.querySelectorAll('.neo-btn');
+        glitchElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.animation = 'glitch 0.3s ease-in-out';
+                setTimeout(() => {
+                    el.style.animation = '';
+                }, 300);
+            });
+        });
+
+        // Navbar background on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.querySelector('div > div').classList.add('shadow-neo-lg');
+            } else {
+                nav.querySelector('div > div').classList.remove('shadow-neo-lg');
+            }
+        });
+    </script>
+</body>
+</html>
