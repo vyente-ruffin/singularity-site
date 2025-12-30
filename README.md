@@ -8,19 +8,19 @@ Landing page for [Singularity.tech](https://singularity.tech) - an AI/tech start
 
 | Version | Style | Live Preview |
 |---------|-------|--------------|
-| Root | Neobrutalist | [View](https://vyente-ruffin.github.io/singularity-site/) |
-| v1 | Bento Grid | [View](https://vyente-ruffin.github.io/singularity-site/v1/) |
-| v2 | 3D/WebGL | [View](https://vyente-ruffin.github.io/singularity-site/v2/) |
-| v3 | Kinetic Scroll | [View](https://vyente-ruffin.github.io/singularity-site/v3/) |
-| v4 | Glassmorphism | [View](https://vyente-ruffin.github.io/singularity-site/v4/) |
-| v5 | Monospace/Dev | [View](https://vyente-ruffin.github.io/singularity-site/v5/) |
-| v6 | Parallax Storytelling | [View](https://vyente-ruffin.github.io/singularity-site/v6/) |
-| v7 | Claymorphism | [View](https://vyente-ruffin.github.io/singularity-site/v7/) |
-| v8 | Editorial/Magazine | [View](https://vyente-ruffin.github.io/singularity-site/v8/) |
-| v9 | Swiss Minimalist | [View](https://vyente-ruffin.github.io/singularity-site/v9/) |
-| v10 | Split Screen | [View](https://vyente-ruffin.github.io/singularity-site/v10/) |
-| v11 | Maximalist | [View](https://vyente-ruffin.github.io/singularity-site/v11/) |
-| v12 | Retro Futurism | [View](https://vyente-ruffin.github.io/singularity-site/v12/) |
+| Root | Neobrutalist | <a href="https://vyente-ruffin.github.io/singularity-site/" target="_blank">View</a> |
+| v1 | Bento Grid | <a href="https://vyente-ruffin.github.io/singularity-site/v1/" target="_blank">View</a> |
+| v2 | 3D/WebGL | <a href="https://vyente-ruffin.github.io/singularity-site/v2/" target="_blank">View</a> |
+| v3 | Kinetic Scroll | <a href="https://vyente-ruffin.github.io/singularity-site/v3/" target="_blank">View</a> |
+| v4 | Glassmorphism | <a href="https://vyente-ruffin.github.io/singularity-site/v4/" target="_blank">View</a> |
+| v5 | Monospace/Dev | <a href="https://vyente-ruffin.github.io/singularity-site/v5/" target="_blank">View</a> |
+| v6 | Parallax Storytelling | <a href="https://vyente-ruffin.github.io/singularity-site/v6/" target="_blank">View</a> |
+| v7 | Claymorphism | <a href="https://vyente-ruffin.github.io/singularity-site/v7/" target="_blank">View</a> |
+| v8 | Editorial/Magazine | <a href="https://vyente-ruffin.github.io/singularity-site/v8/" target="_blank">View</a> |
+| v9 | Swiss Minimalist | <a href="https://vyente-ruffin.github.io/singularity-site/v9/" target="_blank">View</a> |
+| v10 | Split Screen | <a href="https://vyente-ruffin.github.io/singularity-site/v10/" target="_blank">View</a> |
+| v11 | Maximalist | <a href="https://vyente-ruffin.github.io/singularity-site/v11/" target="_blank">View</a> |
+| v12 | Retro Futurism | <a href="https://vyente-ruffin.github.io/singularity-site/v12/" target="_blank">View</a> |
 
 ## About
 
