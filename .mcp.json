@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "azure": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/azure-mcp"],
+      "env": {
+        "AZURE_SUBSCRIPTION_ID": "849e7085-e479-472d-aad2-c1ee8f60a1d4",
+        "AZURE_REGION": "westus2"
+      }
+    }
+  }
+}
