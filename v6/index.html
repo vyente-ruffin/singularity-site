@@ -116,18 +116,13 @@
             clip-path: inset(0 100% 0 0);
         }
 
-        .reveal-up {
-            transform: translateY(60px);
-            opacity: 0;
-        }
-
-        .reveal-fade {
-            opacity: 0;
-        }
-
-        .reveal-scale {
-            transform: scale(0.8);
-            opacity: 0;
+        /* Animation classes - GSAP handles initial hidden state */
+        .reveal-up,
+        .reveal-fade,
+        .reveal-scale,
+        .process-step {
+            /* Visible by default for no-JS fallback */
+            /* GSAP sets initial state and animates */
         }
 
         /* Parallax layers */
@@ -136,12 +131,6 @@
             width: 100%;
             height: 100%;
             will-change: transform;
-        }
-
-        /* Process step styling */
-        .process-step {
-            opacity: 0;
-            transform: translateY(40px);
         }
 
         .process-line {
