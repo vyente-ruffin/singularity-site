@@ -512,53 +512,48 @@
         </div>
     </section>
 
-    <!-- Process Section - Horizontal Scroll -->
-    <section class="section-pinned" id="process-section">
-        <div id="process-container" style="overflow: hidden;">
-            <div class="horizontal-scroll" id="horizontal-scroll">
-                <!-- DISCOVER -->
-                <div class="horizontal-panel" style="background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);">
-                    <div class="max-w-4xl text-center">
-                        <div class="process-indicator mx-auto mb-8">1</div>
-                        <h3 class="text-display text-gradient mb-6">DISCOVER</h3>
-                        <p class="text-title text-white/80 mb-4">We audit your operations</p>
-                        <p class="text-subtitle max-w-2xl mx-auto">
+    <!-- Process Section - Vertical Timeline -->
+    <section class="section-pinned gradient-dark" id="process-section">
+        <div class="container mx-auto px-6 md:px-12 py-32">
+            <div class="max-w-5xl mx-auto">
+                <!-- Process Steps Grid -->
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                    <!-- DISCOVER -->
+                    <div class="process-step glass-card p-8 relative">
+                        <div class="process-indicator mb-6">1</div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gradient mb-4">DISCOVER</h3>
+                        <p class="text-lg font-medium text-white/90 mb-3">We audit your operations</p>
+                        <p class="text-body">
                             We audit your operations to find the highest-impact AI opportunities that will deliver measurable business value.
                         </p>
                     </div>
-                </div>
 
-                <!-- DESIGN -->
-                <div class="horizontal-panel" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
-                    <div class="max-w-4xl text-center">
-                        <div class="process-indicator mx-auto mb-8">2</div>
-                        <h3 class="text-display text-gradient mb-6">DESIGN</h3>
-                        <p class="text-title text-white/80 mb-4">We architect solutions</p>
-                        <p class="text-subtitle max-w-2xl mx-auto">
+                    <!-- DESIGN -->
+                    <div class="process-step glass-card p-8 relative">
+                        <div class="process-indicator mb-6">2</div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gradient mb-4">DESIGN</h3>
+                        <p class="text-lg font-medium text-white/90 mb-3">We architect solutions</p>
+                        <p class="text-body">
                             We architect solutions that fit your existing systems and workflows—not the other way around.
                         </p>
                     </div>
-                </div>
 
-                <!-- DEPLOY -->
-                <div class="horizontal-panel" style="background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);">
-                    <div class="max-w-4xl text-center">
-                        <div class="process-indicator mx-auto mb-8">3</div>
-                        <h3 class="text-display text-gradient mb-6">DEPLOY</h3>
-                        <p class="text-title text-white/80 mb-4">We implement with guardrails</p>
-                        <p class="text-subtitle max-w-2xl mx-auto">
+                    <!-- DEPLOY -->
+                    <div class="process-step glass-card p-8 relative">
+                        <div class="process-indicator mb-6">3</div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gradient mb-4">DEPLOY</h3>
+                        <p class="text-lg font-medium text-white/90 mb-3">We implement with guardrails</p>
+                        <p class="text-body">
                             We implement AI that your team can actually use—with proper security, governance, and training.
                         </p>
                     </div>
-                </div>
 
-                <!-- DELIVER -->
-                <div class="horizontal-panel" style="background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);">
-                    <div class="max-w-4xl text-center">
-                        <div class="process-indicator mx-auto mb-8">4</div>
-                        <h3 class="text-display text-gradient mb-6">DELIVER</h3>
-                        <p class="text-title text-white/80 mb-4">We prove the value</p>
-                        <p class="text-subtitle max-w-2xl mx-auto">
+                    <!-- DELIVER -->
+                    <div class="process-step glass-card p-8 relative">
+                        <div class="process-indicator mb-6">4</div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gradient mb-4">DELIVER</h3>
+                        <p class="text-lg font-medium text-white/90 mb-3">We prove the value</p>
+                        <p class="text-body">
                             We measure, optimize, and prove the value in real business terms—not vanity metrics.
                         </p>
                     </div>
@@ -814,42 +809,18 @@
             }
         });
 
-        // Horizontal scroll for Process section
-        const horizontalScroll = document.getElementById('horizontal-scroll');
-        const panels = gsap.utils.toArray('.horizontal-panel');
-
-        gsap.to(horizontalScroll, {
-            x: () => -(horizontalScroll.scrollWidth - window.innerWidth),
-            ease: 'none',
+        // Process section animations (vertical grid layout)
+        gsap.from('.process-step', {
+            y: 60,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power2.out',
             scrollTrigger: {
                 trigger: '#process-section',
-                pin: true,
-                scrub: 1,
-                end: () => '+=' + horizontalScroll.scrollWidth,
-                invalidateOnRefresh: true
+                start: 'top 75%',
+                toggleActions: 'play none none reverse'
             }
-        });
-
-        // Animate each panel content as it comes into view
-        panels.forEach((panel, i) => {
-            const indicator = panel.querySelector('.process-indicator');
-            const title = panel.querySelector('.text-display');
-            const subtitle = panel.querySelector('.text-title');
-            const desc = panel.querySelector('.text-subtitle');
-
-            gsap.from([indicator, title, subtitle, desc], {
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                scrollTrigger: {
-                    trigger: panel,
-                    containerAnimation: gsap.getById ? undefined : undefined,
-                    start: 'left center',
-                    toggleActions: 'play none none reverse',
-                    horizontal: true
-                }
-            });
         });
 
         // Value section animations
