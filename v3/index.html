@@ -226,19 +226,12 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
-        /* Reveal animations */
-        .reveal-up {
-            opacity: 0;
-            transform: translateY(60px);
-        }
-
-        .reveal-fade {
-            opacity: 0;
-        }
-
+        /* Reveal animations - GSAP handles initial state */
+        .reveal-up,
+        .reveal-fade,
         .reveal-scale {
-            opacity: 0;
-            transform: scale(0.9);
+            /* Visible by default for no-JS fallback */
+            /* GSAP will set initial hidden state and animate */
         }
 
         /* Horizontal scroll section */
